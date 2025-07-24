@@ -1,0 +1,28 @@
+{
+  "name": "nodepost",
+  "version": "1.0.0",
+  "description": "A node CMS based on WordPress with a powerful page builder",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankastin24/nodepost.git"
+  },
+  "keywords": [
+    "cms",
+    "wordpress",
+    "mvc"
+  ],
+  "author": "Frank Astin",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/frankastin24/nodepost/issues"
+  },
+  "homepage": "https://github.com/frankastin24/nodepost#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "sqlite3": "^5.1.7"
+  }
+}
