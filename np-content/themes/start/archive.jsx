@@ -4,7 +4,11 @@
 <body>
 <header/>
 
-{the_content()}
+{posts.forEach((post) => {
+
+})}
+
+{np_pagination()}
 
 <footer/>
 </body>
