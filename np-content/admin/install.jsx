@@ -1,5 +1,3 @@
-const header = require('header');
-const footer = require('footer');
 <body>
     
     <header/>
