@@ -1,3 +1,7 @@
+if(typeof global.__actions == 'undefined') {
+    global.__actions = {};
+}
+
 module.exports = (...params) => {
     const action = params[0];
     const callback = params[1];

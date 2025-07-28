@@ -1,7 +1,9 @@
+const path = require('path');
+const fs = require('fs');
 const env = {};
 
   // Read file content
-  const absPath = path.resolve('../.env');
+  const absPath = path.resolve(global.__app_path+'/.env');
   
   if (!fs.existsSync(absPath)) {
     throw new Error(`File not found: ${absPath}`);

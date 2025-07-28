@@ -1,11 +1,12 @@
 const {DataTypes} = require('sequelize');
-module.exports = global.npdb.define('np_post_meta', {
+
+module.exports = global.npdb.define('np_user_meta', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,  
   },
-  postId: DataTypes.INTEGER,
+  userId: DataTypes.INTEGER,
   key: DataTypes.STRING,
   value: DataTypes.STRING,
 });
