@@ -1,8 +1,13 @@
 const parseJSX = require('./parseJSX');
-
+const fs = require('fs');
 const getExtension = (path) => {
     const splitPath = path.split('.');
     return splitPath.length == 1 ? 'jsx' : splitPath[1];
+}
+const __ = require('../np-includes/__')
+
+const nodeContext = {
+    "__":__
 }
 
 const view = (path) => {
@@ -12,22 +17,11 @@ const view = (path) => {
     const basename = splitPath[0];
 
     const extension = getExtension(path);
+    
+    const JSX = fs.readFileSync(global.__app_path + path + '.jsx', 'utf8');
 
-    const theme_dir = '../np_content/themes/'+global.theme_dir+'/';
-
-    if(pathPartsLength == 0) {
-
-        if(extension == 'jsx') {
-
-            const JSX = FS.readSync(global.theme_dir + path);
-
-            global.express_res.send(parseJSX(JSX));
-        
-        }
-
-    } else {
-
-    }
+    global.__express_res.send(parseJSX(JSX,nodeContext));
+       
 
 }
 

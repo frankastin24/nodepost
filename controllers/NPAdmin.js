@@ -1,4 +1,4 @@
-const admin_views_path = global.app_path + '/np-admin/views/';
+const admin_views_path = '/np-content/admin/';
 const view = require('../fuse/view');
 class NPAdmin {
 

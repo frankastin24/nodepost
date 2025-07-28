@@ -11,13 +11,15 @@ const traverse = require('@babel/traverse').default;
  * @param {object} parsedImports - Used for recursive import tracking
  * @returns {string} - Final rendered HTML string
  */
-function parseJSX(filePath, nodeContext = {}, parsedImports = {}) {
-  const jsxCode = fs.readFileSync(filePath, 'utf8');
-
+function parseJSX(jsxCode, nodeContext = {}, parsedImports = {}) {
+ 
   // Find require() statements for JSX imports
   const requireRegex = /require\(['"`](.+\.jsx)['"`]\)/g;
+
   const imports = {};
+  
   let match;
+  
   while ((match = requireRegex.exec(jsxCode))) {
     const importPath = match[1];
     const fullImportPath = path.resolve(path.dirname(filePath), importPath);
@@ -56,6 +58,8 @@ function parseJSX(filePath, nodeContext = {}, parsedImports = {}) {
     FunctionDeclaration({ node }) {
       try {
         // Convert Babel function AST to executable function (simplified)
+        
+
         declared[node.id.name] = eval(`(${jsxCode.substring(node.start, node.end)})`);
       } catch (e) {}
     },
