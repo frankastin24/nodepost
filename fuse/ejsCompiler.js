@@ -71,16 +71,18 @@ function compileEJS(template, opts = {}) {
 
   src += "';\n}\nreturn __output;";
 
-  // --- FIX IS HERE: Remove "with(data)" from wrapper ---
+
   // eslint-disable-next-line no-new-func
   return new Function(
     'data',
     'escapeHTML',
     'includeAsync',
     `
-    return (async function() {
-      ${src}
-    })();
+    with (data) {
+      return (async function() {
+        ${src}
+      })();
+    }
     `
   );
 }

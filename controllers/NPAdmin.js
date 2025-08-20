@@ -16,22 +16,22 @@ class NPAdmin {
             
             
             
-            global.__cpts.forEach((CPT) => {
-                global.admin_menu.push({
-                    pageName : CPT.pageName,
-                    dashIcon : false,
-                    subMenu : [
-                        {
-                            pageName: 'View All',
-                            pageURL : 'view-all/'+CPT.slug
-                        },
-                        {
-                            pageName: 'Create New',
-                            pageURL : 'create-new/'+CPT.slug
-                        },
-                    ]
-                })
-            })
+            // global.__cpts.forEach((CPT) => {
+            //     global.admin_menu.push({
+            //         pageName : CPT.pageName,
+            //         dashIcon : false,
+            //         subMenu : [
+            //             {
+            //                 pageName: 'View All',
+            //                 pageURL : 'view-all/'+CPT.slug
+            //             },
+            //             {
+            //                 pageName: 'Create New',
+            //                 pageURL : 'create-new/'+CPT.slug
+            //             },
+            //         ]
+            //     })
+            // })
  
             global.admin_menu.push({
                 pageName : 'Themes',
@@ -80,16 +80,12 @@ class NPAdmin {
         }, 0);
     }
 
-    static async index(request) {
+    static  index(request) {
         const do_action = require('../np-includes/doAction')
 
         NPAdmin.adminMenu();
 
-        const CustomPostType = require('../models/CustomPostType')
-
-        global.__cpts = await CustomPostType.findAll();
-        
-         do_action('admin_menu');
+        do_action('admin_menu');
 
         if(request.param1 == 'post') {
             
@@ -121,9 +117,9 @@ class NPAdmin {
 
         }
         
-        console.log(global.admin_menu)
+       
 
-        view(admin_views_path + 'home');
+         view(admin_views_path + 'home');
     }
     
     static saveSiteTitle(request,req,res) {
