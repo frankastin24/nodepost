@@ -1,17 +1,38 @@
 const scanAndRequire = require('./fuse/scanAndRequire');
-const addAction = require('./np-includes/addAction');
+const add_action = require('./np-includes/addAction');
+const do_action = require('./np-includes/doAction');
+const enqueue_admin_stylesheet = require('./np-includes/enqueue_admin_stylesheet');
+const enqueue_admin_script = require('./np-includes/enqueue_admin_script');
+
 //Load environmentals
+
 global.__app_path = __dirname;
 require('./fuse/enviromentals');
 require('./fuse/db')
-require('./routes')
+
+
+
 //Load models
-addAction('db_initalized', () => {
+
+add_action('db_initalized', () => {
    scanAndRequire(global.__app_path+'/models');
+
+   require('./routes')
+})
+
+//Enqueue admin scripts 
+add_action('enqueue_scripts', () => {
+   enqueue_admin_stylesheet('Cormorant','https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&display=swap',[]);
+    enqueue_admin_stylesheet('Roboto','https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap',[]);
+   
+   enqueue_admin_stylesheet('admin-styles','/np-content/admin/scss/index.css',[]);
+   enqueue_admin_script('jquery','https://code.jquery.com/jquery-3.7.1.min.js',[],false);
+   enqueue_admin_script('admin-script','/np-content/admin/js/script.js',['jquery'],true);
 })
 
 
-
 //Load server
+
+do_action('enqueue_scripts');
 
 require('./fuse/server');

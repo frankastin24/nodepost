@@ -96,13 +96,13 @@ class Router {
                 return res.status(500).json({ error: `Method "${methodName}" not found in "${className}"` });
             }
             // Only send response if not already sent by controller
-            if (!res.headersSent) {
-                if (Array.isArray(result) || typeof result === 'object') {
-                    return res.json(result);
-                } else {
-                    return res.send(result);
-                }
-            }
+            // if (!res.headersSent) {
+            //     if (Array.isArray(result) || typeof result === 'object') {
+            //         return res.json(result);
+            //     } else {
+            //         return res.send(result);
+            //     }
+            // }
         } catch (err) {
             return res.status(500).json({ error: err.message || 'Controller execution failed' });
         }

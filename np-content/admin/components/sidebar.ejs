@@ -1,0 +1,31 @@
+<aside id="dash-sidebar">
+   <a href="/np-admin"><img src="/logo.svg"/></a>
+   <ul>
+
+      <% global.admin_menu.forEach((menuItem) => { %>
+      
+      <li data-item-name="pages" class="menu-item">
+        <div class="title">
+
+        <% if(menuItem.dashIcon) { %>
+            <img src="/np-content/admin/dash-icons/<%= menuItem.dashIcon %>.svg"/>
+        <% } %>
+
+        <h4><%= menuItem.pageName %></h4>
+        
+        </div>
+        <ul class="sub-menu">
+              <% menuItem.subMenu.forEach((subMenuItem) => { %>
+
+                <li>
+                    <a href="<%= subMenuItem.pageUrl %>"><%= subMenuItem.pageUrl %></a>
+                </li>
+
+             <% })  %>
+        </ul>
+      </li>
+
+      <% })  %>
+
+   </ul> 
+</aside>

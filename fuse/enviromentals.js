@@ -36,9 +36,10 @@ updateEnvVariable = (key,value) => {
   let envContent = '';
 
   // Read the existing .env file
-  if (fs.existsSync(filePath)) {
-    envContent = fs.readFileSync(filePath, 'utf-8');
+  if (fs.existsSync(global.__app_path +'/.env')) {
+    envContent = fs.readFileSync(global.__app_path +'/.env', 'utf-8');
   }
+  console.log('here');
 
   const lines = envContent.split('\n');
 
@@ -57,8 +58,8 @@ updateEnvVariable = (key,value) => {
 
   global.__env[key] = value;
 
-  fs.writeFileSync('../.env', updatedLines.join('\n'), 'utf-8');
-  console.log(`${key} updated to "${value}" in .env`);
+  fs.writeFileSync(global.__app_path +'/.env', updatedLines.join('\n'), 'utf-8');
+  console.log(global.__app_path +'/.env' +`${key} updated to "${value}" in .env`);
 }
 
 module.exports = updateEnvVariable;

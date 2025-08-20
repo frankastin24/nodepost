@@ -32,12 +32,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-  {do_admin_stylesheets()}
-
+  <%- do_admin_stylesheets() %>
+  <%- do_admin_scripts(false) %>
+  
   <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet" />
   
-  <link rel="canonical" href="{global.__site_url}" />
+  <link rel="canonical" href="" />
   
-  <title>NodePress - {global.__page_title}</title>
+  <title>NodePress - Install</title>
 
 </head>
+<body>

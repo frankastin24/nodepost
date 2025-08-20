@@ -1,11 +1,11 @@
-module.exports = (action) => {
+module.exports = async (action) => {
     if (typeof global.__actions[action] === 'undefined') return;
 
     let output = '';
     const callables = sortCallables(global.__actions[action]);
 
     for (const callable of callables) {
-        output += callable.callback();
+        output += await callable.callback();
     }
 
     return output;

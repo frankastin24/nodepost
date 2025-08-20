@@ -1,0 +1,75 @@
+.hidden {
+  display: none;
+}
+
+h1, h2, h3, h4, button, p, input, label {
+  font-family: "Roboto", sans-serif;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-columns {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.height-100-vh {
+  height: 100vh;
+}
+
+form label {
+  display: block;
+  font-size: 18px;
+}
+form input {
+  font-size: 20px;
+  border: 1px solid #000;
+  padding: 10px 20px;
+}
+
+.error {
+  position: absolute;
+  top: 40px;
+  color: red;
+}
+
+.np-button-large {
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+#install-select-database {
+  gap: 40px;
+}
+#install-select-database .buttons {
+  gap: 20px;
+}
+
+#install-site-name form {
+  gap: 20px;
+}
+#install-site-name form input {
+  width: 400px;
+}
+
+.buttons {
+  margin: 40px 0px;
+  gap: 20px;
+}/*# sourceMappingURL=index.css.map */

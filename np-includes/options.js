@@ -1,7 +1,7 @@
 const Option = require('../models/Option')
 const NPError = require('./npError')
 
-const updateOption = (name,value) => {
+const update_option = async (name,value) => {
     if(typeof name == 'undefined') {
         return NPError(__dirname+'options.js:6', 'Option name undefined');
     }
@@ -9,49 +9,50 @@ const updateOption = (name,value) => {
         return NPError(__dirname+'options.js:6', 'Option value undefined');
     }
     
-   const foundOptions = Option.findAll({
+   const foundOptions = await Option.findAll({
         where: {
             key: name
         }
     })
-
-    
 
     if(typeof value !== 'string') {
         value = JSON.stringify(value);   
     }
 
     if(foundOptions.length == 0) {
-        Option.create({
+        const newOption = Option.build({
             key:name,
             value:value
         })
+        newOption.save();
     } else {
         foundOptions[0].value = value;
+        foundOptions[0].save();
     }
 
 }
 
-const getOption = (name) => {
+const get_option = async (name) => {
     if(typeof name == 'undefined') {
         return NPError(__dirname+'options.js:37', 'Option name undefined');
     }
    
     
-   const foundOptions = Option.findAll({
+   const foundOptions = await Option.findAll({
         where: {
             key: name
         }
     })
+    
 
     if(foundOptions.length == 0) {
         return false;
     }
 
     
-    const parsedJSON =  JSON.parse(foundOptions[0].value);
+    if(isJson(foundOptions[0].value)) {
+        const parsedJSON =  JSON.parse(foundOptions[0].value);
 
-    if(parsedJSON) {
         return parsedJSON;
     } else {
         return foundOptions[0].value;
@@ -59,7 +60,16 @@ const getOption = (name) => {
 
 }
 
-const deleteOption = (name) => {
+const isJson = (str) => {
+    try {
+        JSON.parse(str);
+    } catch (e) {
+        return false;
+    }
+    return true;
+}
+
+const delete_option = (name) => {
      const foundOptions = Option.findAll({
         where: {
             key: name
@@ -74,4 +84,4 @@ const deleteOption = (name) => {
     return true;
 } 
 
-module.exports = {updateOption,getOption,deleteOption};
+module.exports = {update_option,get_option,delete_option};

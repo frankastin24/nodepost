@@ -7,7 +7,7 @@ const initializeDB = async () => {
   
   if(global.__env.FORCE_MYSQL == 'true' ||  global.__env.MODE == 'production') {
   
-    const sequelize = new Sequelize({
+    sequelize = new Sequelize({
      dialect: 'mysql',
      host: global.__env.DB_HOSTNAME,
      username: global.__env.DB_USERNAME,
@@ -16,9 +16,9 @@ const initializeDB = async () => {
 
   } else {
 
-    const sequelize = new Sequelize({
+    sequelize = new Sequelize({
       dialect: 'sqlite',
-      storage: '../postnode.sqlite' // <-- your file path here
+      storage: global.__app_path +'/postnode.sqlite' // <-- your file path here
     });
 
   }
@@ -30,6 +30,5 @@ const initializeDB = async () => {
   doAction('db_initalized');
 
 }
-
-module.exports = initializeDB;
+initializeDB();
 

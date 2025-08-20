@@ -1,6 +1,6 @@
 const {DataTypes} = require('sequelize');
 
-const Option = global.npdb.define('np_options', {
+const Menu = global.npdb.define('np_options', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -10,7 +10,7 @@ const Option = global.npdb.define('np_options', {
   value: DataTypes.STRING,
 });
 
-module.exports = Option;
+module.exports = Menu;
 
 (async ()=> {
     await global.npdb.sync();
