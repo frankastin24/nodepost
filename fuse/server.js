@@ -1,34 +1,32 @@
 const express = require('express');
 const router = require('./routing');
-const path = require('path');
-const fs = require('fs')
+const session = require('express-session');
+const contextMiddleware = require('./context')
+const SequelizeStore = require('connect-session-sequelize')(session.Store);
+
 const app = express();
 const port = 80;
+
+
+
 app.use(express.urlencoded({ extended: true }));
-app.use((req, res, next) => {
-    // Construct an absolute path based on the request URL
-    const requestedPath = path.join(global.__app_path, req.path);
 
-    // Security: Prevent access outside the base directory
-    if (!requestedPath.startsWith(global.__app_path)) {
-        return res.status(403).send('Forbidden');
-    }
+app.use(session({
+  secret: 'your-secret-key',            // Change this to a strong secret for your app
+  resave: false,                        // Don't save session if unmodified
+  saveUninitialized: false,             // Don't create session until something stored
+  cookie: { secure: false } ,
+  store: new SequelizeStore({
+    db: global.npdb,
+  }),            // Set to true if using HTTPS
+}));
 
-    fs.stat(requestedPath, (err, stats) => {
-        if (!err && stats.isFile()) {
-            // File exists, serve it
-            res.sendFile(requestedPath);
-        } else {
-            // Not a file or doesn't exist, continue to other middleware/routes
-            next();
-        }
-    });
-});
+app.use(contextMiddleware);
 
 app.all('/{*any}', (req, res) => {
-    global.__express_res = res;
-    global.__express_req = req;
-    router.execute(req, res);
+     
+
+    //router.execute(req.context);
 });
 
 app.listen(port, () => {

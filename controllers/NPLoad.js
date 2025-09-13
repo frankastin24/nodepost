@@ -1,8 +1,8 @@
 class NPLoad {
-    static init() {
+    static init(request,context) {
 
         if(global.__env.INSTALL_COMPLETE = 'false') {
-            global.__express_res.redirect(`/${global.__env.ADMIN_URL}/install`);
+            context.res.redirect(`/${global.__env.ADMIN_URL}/install`);
         }
 
     }

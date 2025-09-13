@@ -16,8 +16,12 @@ require('./fuse/db')
 
 add_action('db_initalized', () => {
    scanAndRequire(global.__app_path+'/models');
-
+   
+   do_action('enqueue_scripts');
+   
    require('./routes')
+   require('./fuse/server');
+
 })
 
 //Enqueue admin scripts 
@@ -33,6 +37,5 @@ add_action('enqueue_scripts', () => {
 
 //Load server
 
-do_action('enqueue_scripts');
 
-require('./fuse/server');
+

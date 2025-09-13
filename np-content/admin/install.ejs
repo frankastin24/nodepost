@@ -56,6 +56,28 @@
 
 </div>
 
+<div id="admin_creds" class="text-center height-100-vh flex-columns justify-center hidden">
+
+     <h1><%= __("Please enter the admin username and password") %></h1>
+
+     <form class="flex justify-center">
+        
+        <div>
+        <input placeholder="<%= __("Username") %>" name="username" value=""/>
+           <p class="error hidden">Please enter a Username</p>
+        </div>
+        <div>
+
+        <input type="password" placeholder="<%= __("Password") %>" name="password" value=""/>
+           <p class="error hidden">Please enter a Password</p>
+        </div>
+
+        <button class="save-admin-creds np-button-large">Next</button>
+        
+    </form>
+
+</div>
+
 <div class="text-center height-100-vh flex-columns justify-center hidden" id="install-start">
 
     <h1><%= __("How would you like to begin?") %></h1>

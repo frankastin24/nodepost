@@ -1,6 +1,5 @@
 const {DataTypes} = require('sequelize');
-
-module.exports = global.npdb.define('np_users', {
+const User = global.npdb.define('np_users', {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -18,9 +17,12 @@ module.exports = global.npdb.define('np_users', {
   country: DataTypes.STRING,
   postcode: DataTypes.STRING,
   phone: DataTypes.STRING,
-  is_public: DataTypes.BOOLEAN
+  role: DataTypes.STRING,
 
 });
+
+module.exports = User;
+
 (async ()=> {
     await global.npdb.sync();
 })()

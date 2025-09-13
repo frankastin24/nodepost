@@ -24,7 +24,33 @@ $(() => {
 
         } , () => {
             $('#install-site-name').css('display','none');
-            $('#install-start').css('display','flex');
+            $('#admin_creds').css('display','flex');
+        })
+    })
+
+    $('.save-admin-creds').on('click', (e) => {
+         e.preventDefault();
+         const username = $('input[name="username"]').val();
+         const password = $('input[name="password"]').val();
+
+         if(username == '') {
+            $('input[name="username"]').siblings('p').show();
+            return;
+         }
+
+         if(password == '') {
+            $('input[name="password"]').siblings('p').show();
+            return;
+         }
+
+
+        $.post('/api/np-admin/save-admin-creds', {
+            username,
+            password
+
+        } , () => {
+            $('#install-site-name').css('display','none');
+            $('#admin_creds').css('display','flex');
         })
     })
 

@@ -1,10 +1,13 @@
 const admin_views_path = '/np-content/admin/';
 const view = require('../fuse/view');
 const updateEnvVariable = require('../fuse/enviromentals');
+const crypto = require('crypto')
+
+
 class NPAdmin {
 
-    static install(request) {
-        view(admin_views_path + 'install');
+    static install(context,request) {
+        view(admin_views_path + 'install',{},context);
     }
 
     static adminMenu() {
@@ -80,9 +83,9 @@ class NPAdmin {
         }, 0);
     }
 
-    static async index(request) {
-        const do_action = require('../np-includes/doAction')
+    static async index(request,context) {
 
+        const do_action = require('../np-includes/doAction')
         NPAdmin.adminMenu();
 
         const CustomPostType = require('../models/CustomPostType')
@@ -97,7 +100,7 @@ class NPAdmin {
 
             global.post = currentPost;
 
-            return view(admin_views_path + 'post');
+            return view(admin_views_path + 'post',{},context);;
 
         } 
 
@@ -107,7 +110,7 @@ class NPAdmin {
 
             global.cpt = currentCPT;
 
-            return view(admin_views_path + 'view-all');
+            return view(admin_views_path + 'view-all',{},context);
 
         } 
 
@@ -117,13 +120,13 @@ class NPAdmin {
 
             global.settingsPage = currentCPT;
 
-            return view(admin_views_path + 'post');
+            return view(admin_views_path + 'post',{},context);
 
         }
         
        
 
-        await view(admin_views_path + 'home');
+        await view(admin_views_path + 'home',{},context);
     }
     
     static saveSiteTitle(request,req,res) {
@@ -136,6 +139,20 @@ class NPAdmin {
        
     }
 
+    static saveUserCreds(request,req,res) {
+       const add_user = require('../np-includes/add_user');
+       const hashedPassword = crypto.createHash('md5').update(request.password).digest("hex")
+
+       add_user({ 
+        username: request.username,
+        password : hashedPassword,
+        role: 'admin'
+       })
+
+       res.send('{"success" : true}');
+    
+    }
+
     static startWithIgnition(request,req,res) {
         const {update_option} = require('../np-includes/options')
         update_option('active_theme','igition');
@@ -145,6 +162,8 @@ class NPAdmin {
         
         res.send('{"success" : true}');
     }
+
+
 
     static startWithPageBuilder(request,req,res) {
         const {update_option} = require('../np-includes/options')

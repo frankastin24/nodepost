@@ -21,16 +21,9 @@ const get_admin_stylesheets = () => {
     return '';
 }
 
-const nodeContext = {
-    "__":__,
-    get_template_part,
-    do_admin_stylesheets,
-    do_admin_scripts,
-    get_option,
-    global
-}
 
-const view = async (path) => {
+
+const view = async (path,data,context) => {
 
     const splitPath = path.split('/');
     const pathPartsLength = splitPath.length - 1;
@@ -39,10 +32,20 @@ const view = async (path) => {
     const extension = getExtension(path);
     
     const ejxstring = fs.readFileSync(global.__app_path + path + '.ejs', 'utf8');
+    
+    const nodeContext = {
+    "__":__,
+    get_template_part,
+    do_admin_stylesheets,
+    do_admin_scripts,
+    get_option,
+    global,
+    data 
+    }
 
     const renderTemplate = await renderAsync(ejxstring,nodeContext);
 
-    global.__express_res.send(renderTemplate);
+    context.res.send(renderTemplate);
     
 }
 

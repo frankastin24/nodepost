@@ -36,8 +36,9 @@ class Router {
      * @param {object} req - Express-like request object
      * @param {object} res - Express-like response object
      */
-    static async execute(req, res) {
-        let reqPath = req.path;
+    static async execute(context) {
+        
+        let reqPath = context.req.path;
         
         if (reqPath.endsWith('/') && reqPath.length > 1) reqPath = reqPath.slice(0, -1);
         
@@ -45,10 +46,10 @@ class Router {
 
         
 
-        let method = req.method.toLowerCase();
+        let method = context.req.method.toLowerCase();
         // Support _method override in body (for HTML forms etc)
-        if (req.body && typeof req.body._method === 'string') {
-            const override = req.body._method.toLowerCase();
+        if (context.req.body && typeof rcontext.req.body._method === 'string') {
+            const override = context.req.body._method.toLowerCase();
             if (['delete', 'patch', 'put', 'post', 'get'].includes(override)) method = override;
         }
 
@@ -75,26 +76,28 @@ class Router {
         }
 
         if (!matched) {
-            return res.status(404).json({ error: 'Route not found' });
+            return context.res.status(404).json({ error: 'Route not found' });
         }
 
         // Build request data
-        const request = { ...routeVariables, ...req.body, ...req.query };
+        const request = { ...routeVariables, ...context.req.body, ...context.req.query };
 
         // Parse callable
        
         // Execute controller method (support async)
         try {
+
             let result;
             
             if (typeof matched.callable === 'function') {
                 result = await matched.callable(request, req, res);
             } else if (Controller.prototype && typeof Controller.prototype[methodName] === 'function') {
                 const instance = new Controller();
-                result = await instance[methodName](request, req, res);
+                result = await instance[methodName](request, context);
             } else {
                 return res.status(500).json({ error: `Method "${methodName}" not found in "${className}"` });
             }
+            
             // Only send response if not already sent by controller
             // if (!res.headersSent) {
             //     if (Array.isArray(result) || typeof result === 'object') {
@@ -104,7 +107,7 @@ class Router {
             //     }
             // }
         } catch (err) {
-            return res.status(500).json({ error: err.message || 'Controller execution failed' });
+            return context.res.status(500).json({ error: err.message || 'Controller execution failed' });
         }
     }
 }
