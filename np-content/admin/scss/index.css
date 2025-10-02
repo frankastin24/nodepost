@@ -2,8 +2,14 @@
   display: none;
 }
 
-h1, h2, h3, h4, button, p, input, label {
+h1, h2, h3, h4, h5, h6, button, p, input, label, div, ul, li {
   font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+ul, li {
+  list-style: none;
 }
 
 .text-center {
@@ -20,6 +26,18 @@ h1, h2, h3, h4, button, p, input, label {
 
 .justify-center {
   justify-content: center;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.select-align {
+  border-left: none !important;
+}
+
+.element-options {
+  border-right: 1px solid #000 !important;
 }
 
 .height-100-vh {
@@ -55,6 +73,35 @@ button {
   cursor: pointer;
 }
 
+.popup {
+  position: absolute;
+  width: 600px;
+  left: calc(50% - 300px);
+  text-align: center;
+  border: 1px solid #000;
+  top: 50px;
+  border-radius: 20px;
+  background: #FFF;
+  display: none;
+}
+.popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.popup input {
+  display: block;
+  margin: auto;
+}
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+}
+
 #install-select-database {
   gap: 40px;
 }
@@ -72,4 +119,81 @@ button {
 .buttons {
   margin: 40px 0px;
   gap: 20px;
+}
+
+.menu-item {
+  cursor: pointer;
+}
+.menu-item .sub-menu {
+  display: none;
+  background: #CCC;
+}
+.menu-item.open .sub-menu {
+  display: block;
+}
+
+.np-element {
+  border: 1px solid #000;
+}
+
+.np-columns {
+  padding: 10px;
+  gap: 10px;
+}
+
+.np-heading {
+  padding: 10px;
+}
+
+.elements-panel {
+  border: 1px solid #000;
+  background: #CCC;
+}
+.elements-panel .elements {
+  gap: 10px;
+  flex-wrap: wrap;
+}
+.elements-panel .elements button {
+  width: calc(33% - 10px);
+  display: block;
+  min-width: calc(33% - 10px);
+}
+
+.heading-options {
+  position: absolute;
+  margin-top: -29px;
+}
+.heading-options input {
+  width: 40px;
+  height: 30px;
+}
+.heading-options .select-level {
+  cursor: pointer;
+}
+.heading-options .select-level h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+.heading-options > div {
+  border: 1px solid #000;
+  height: 23px;
+  padding-top: 5px;
+  background: #FFF;
+  width: 40px;
+  text-align: center;
+  border-right: none;
+}
+.heading-options > div ul {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  margin-top: 4px;
+  margin-left: -1px;
+  background: #FFF;
+}
+.heading-options > div ul li {
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 4px 10px;
 }/*# sourceMappingURL=index.css.map */

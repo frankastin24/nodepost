@@ -3,11 +3,9 @@ const router = require('./routing');
 const session = require('express-session');
 const contextMiddleware = require('./context')
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
-
+const serveStaticIfExists = require('./serveStatic')
 const app = express();
 const port = 80;
-
-
 
 app.use(express.urlencoded({ extended: true }));
 
@@ -23,10 +21,10 @@ app.use(session({
 
 app.use(contextMiddleware);
 
-app.all('/{*any}', (req, res) => {
-     
+app.use(serveStaticIfExists(global.__app_path));
 
-    //router.execute(req.context);
+app.all('/{*any}', (req, res) => {
+    router.execute(req.context);
 });
 
 app.listen(port, () => {

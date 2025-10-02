@@ -14,13 +14,23 @@ router.get(`/${adminURL}/install`,NPAdmin.install)
 
 router.get(`/${adminURL}`,NPAdmin.index)
 
+router.get(`/${adminURL}/[param1]`,NPAdmin.index)
+
 router.get(`/${adminURL}/[param1]/[param2]`,NPAdmin.index)
 
 router.get(`/${adminURL}/[param1]/[param2]/[param3]`,NPAdmin.index)
 
 router.post('/api/np-admin/save-site-title',NPAdmin.saveSiteTitle );
+router.post('/api/np-admin/save-admin-creds',NPAdmin.saveAdminCreds );
+
 router.post('/api/np-admin/start-with-ignition', NPAdmin.startWithIgnition );
 router.post('/api/np-admin/start-with-page-builder', NPAdmin.startWithPageBuilder );
+
+router.post('/api/np-admin/add-cpt', NPAdmin.addCPT );
+
+router.post('/api/np-admin/update-cpt', NPAdmin.updateCPT );
+
+router.post('/api/np-admin/delete-cpt', NPAdmin.deleteCPT );
 
 /*
 Load site

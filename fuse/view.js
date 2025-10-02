@@ -12,9 +12,9 @@ const do_admin_stylesheets = require('../np-includes/do_admin_stylesheets')
 const do_admin_scripts = require('../np-includes/do_admin_scripts')
 const {get_option} = require('../np-includes/options');
 
-const get_template_part = async (path) => {
+const get_template_part = async (path,viewContext) => {
     const ejxstring = fs.readFileSync(global.__app_path + path + '.ejs', 'utf8');
-    return await renderAsync(ejxstring,nodeContext);;
+    return await renderAsync(ejxstring,viewContext);;
 }
 
 const get_admin_stylesheets = () => {
@@ -33,18 +33,21 @@ const view = async (path,data,context) => {
     
     const ejxstring = fs.readFileSync(global.__app_path + path + '.ejs', 'utf8');
     
-    const nodeContext = {
+    const viewContext = {
     "__":__,
     get_template_part,
     do_admin_stylesheets,
     do_admin_scripts,
     get_option,
     global,
-    data 
+    data,
+    context,
+    adminURL: global.__env.ADMIN_URL
     }
+    viewContext.viewContext = viewContext;
 
-    const renderTemplate = await renderAsync(ejxstring,nodeContext);
-
+    const renderTemplate = await renderAsync(ejxstring,viewContext);
+   
     context.res.send(renderTemplate);
     
 }

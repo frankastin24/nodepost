@@ -1,0 +1,29 @@
+<%- get_template_part('/np-content/admin/header',viewContext) %>
+
+<section class="flex">
+
+    <%- get_template_part('/np-content/admin/components/sidebar',viewContext) %>
+
+        <div class="dash-main">
+            
+            <h1>New <%= data.cpt.title %> Post</h1>
+
+            <lable>Post Title</lable>
+            
+            <input type="text" name="title"/>
+
+            <lable>Post Slug</lable>
+
+            <input type="text" name="slug"/>
+
+            <label>Post Content</label>
+
+            <div id="basic-editor">
+
+            </div>
+
+        </div>
+
+</section>
+
+<%- get_template_part('/np-content/admin/footer',viewContext) %>

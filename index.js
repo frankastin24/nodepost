@@ -32,6 +32,7 @@ add_action('enqueue_scripts', () => {
    enqueue_admin_stylesheet('admin-styles','/np-content/admin/scss/index.css',[]);
    enqueue_admin_script('jquery','https://code.jquery.com/jquery-3.7.1.min.js',[],false);
    enqueue_admin_script('admin-script','/np-content/admin/js/script.js',['jquery'],true);
+   enqueue_admin_script('basic-editor','/np-content/admin/vue/basic_editor/dist/dist.js',['jquery'],true);
 })
 
 

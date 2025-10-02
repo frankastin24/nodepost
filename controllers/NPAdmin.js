@@ -6,7 +6,7 @@ const crypto = require('crypto')
 
 class NPAdmin {
 
-    static install(context,request) {
+    static install(request,context) {
         view(admin_views_path + 'install',{},context);
     }
 
@@ -17,23 +17,63 @@ class NPAdmin {
             
             global.admin_menu = [];
             
-            
-            
             global.__cpts.forEach((CPT) => {
                 global.admin_menu.push({
-                    pageName : CPT.pageName,
+                    pageName : CPT.title,
                     dashIcon : false,
                     subMenu : [
                         {
                             pageName: 'View All',
+
                             pageURL : 'view-all/'+CPT.slug
+                        
                         },
                         {
+                            
                             pageName: 'Create New',
-                            pageURL : 'create-new/'+CPT.slug
+                            
+                            pageURL : 'create-post/'+CPT.slug
+                        
+                        },
+                        {
+                            
+                            pageName: 'Templates',
+                            
+                            pageURL : 'templates/'+CPT.slug
+                        
                         },
                     ]
                 })
+            })
+
+            global.admin_menu.push({
+                pageName : 'Pages',
+                dashIcon : 'pages',
+                subMenu: [
+                    {
+                            pageName: 'View All',
+                            pageURL : 'pages/view-all'
+                    },
+                    {
+                            pageName: 'Add New',
+                            pageURL : 'pages/add'
+                    },
+                ] 
+            })
+
+            global.admin_menu.push({
+                pageName : 'CPT',
+                dashIcon : 'cpt',
+                subMenu: [
+                    {
+                            pageName: 'View All',
+                            pageURL : 'cpt/view-all'
+                    },
+                    {
+                            pageName: 'Add New',
+                            pageURL : 'cpt/add'
+                    },
+                ] 
             })
  
             global.admin_menu.push({
@@ -86,13 +126,69 @@ class NPAdmin {
     static async index(request,context) {
 
         const do_action = require('../np-includes/doAction')
+        
         NPAdmin.adminMenu();
 
         const CustomPostType = require('../models/CustomPostType')
 
         global.__cpts = await CustomPostType.findAll();
         
-         do_action('admin_menu');
+        do_action('admin_menu');
+        
+        let offset, numPages,displayCPTs;
+
+        if(request.param1 == 'create-post') {
+
+            const cpt = global.__cpts.find((obj) => {
+                return obj.slug == request.param2;
+            })
+
+            return view(admin_views_path+'/post-create', {basic_editor:true,cpt:cpt},context);
+
+        } 
+
+         if(request.param1 == 'cpt') {
+
+            if(request.param2 == 'add') {
+                return view(admin_views_path + '/cpt-new',{},context);
+            }
+
+            if(request.param2 == 'view-all') {
+                
+                offset = 1;
+
+                if(typeof request.param3 !== 'undefined') {
+                    offset = parseInt(request.param3);    
+                }
+
+                numPages = global.__cpts.length / 10;
+                displayCPTs = [];
+                
+                global.__cpts.forEach((cpt,index) => {
+                   console.log(cpt)
+                    if(index >= (offset - 1) && index <= (offset + 10)) {
+                       displayCPTs.push({
+                        id: cpt.id,
+                        title: cpt.title,
+                        slug:cpt.slug, 
+                        use_rest: cpt.use_rest,
+                        top_level:cpt.top_level,
+                        basic_editor :cpt.basic_editor,
+                        page_builder:cpt.page_builder,
+                       })
+                    }
+                } );
+
+                const data = {
+                    cpts: displayCPTs,
+                    pages: numPages,
+                    currentPage : offset,
+                }
+
+                return view(admin_views_path + '/cpt-list', data, context );
+            }
+
+         }
 
         if(request.param1 == 'post') {
             
@@ -124,22 +220,20 @@ class NPAdmin {
 
         }
         
-       
-
         await view(admin_views_path + 'home',{},context);
     }
     
-    static saveSiteTitle(request,req,res) {
+    static saveSiteTitle(request,context) {
 
        const {update_option} = require('../np-includes/options')
        
        update_option('site_title',request.site_title);
        update_option('tag_line',request.tag_line);
-       res.send('{"success" : true}');
+       context.res.send('{"success" : true}');
        
     }
 
-    static saveUserCreds(request,req,res) {
+    static saveAdminCreds(request,context) {
        const add_user = require('../np-includes/add_user');
        const hashedPassword = crypto.createHash('md5').update(request.password).digest("hex")
 
@@ -149,28 +243,103 @@ class NPAdmin {
         role: 'admin'
        })
 
-       res.send('{"success" : true}');
+       context.res.send('{"success" : true}');
     
     }
 
-    static startWithIgnition(request,req,res) {
+    static startWithIgnition(request,context) {
         const {update_option} = require('../np-includes/options')
         update_option('active_theme','igition');
         update_option('has_theme_activated',false);
 
         updateEnvVariable('INSTALL_COMPLETE', 'true');
         
-        res.send('{"success" : true}');
+        context.res.send('{"success" : true}');
     }
 
 
 
-    static startWithPageBuilder(request,req,res) {
+    static startWithPageBuilder(request,context) {
         const {update_option} = require('../np-includes/options')
         update_option('active_theme','pagebuilder');
         update_option('has_theme_activated',false);
         updateEnvVariable('INSTALL_COMPLETE', 'true');
-        res.send('{"success" : true}');
+        context.res.send('{"success" : true}');
+    }
+
+    static async addCPT(request,context) {
+        const CustomPostType = require('../models/CustomPostType');
+        
+        const foundTitles = await CustomPostType.findAll({
+            where : {
+                title : request.title
+            }
+        })
+        console.log(foundTitles);
+
+        if(foundTitles.length > 0) {
+            return context.res.send('Title already used!');
+        }
+
+         const foundSlugs = await CustomPostType.findAll({
+            where : {
+                slug : request.slug
+            }
+        })
+
+        if(foundSlugs.length > 0) {
+            return context.res.send('Slug already used!');
+        }
+        
+       const newCPT = CustomPostType.build({
+            title : request.title,
+            slug: request.slug,
+            menu_name : request.menu_name,
+            basic_editor : request.basic_editor,
+            page_builder: request.page_builder,
+            use_rest: request.use_rest,
+            top_level: request.top_level
+        })
+        
+        await newCPT.save();
+
+        context.res.send('success');
+    }
+
+    static async updateCPT(request,context) {
+
+        const CustomPostType = require('../models/CustomPostType');
+      
+        const cpts = await CustomPostType.findAll({
+            where: {
+                id : parseInt(request.id)
+            }
+        })
+
+     
+        const cpt = cpts[0];
+        cpt.title = request.title;
+        cpt.slug = request.slug;
+        cpt.use_rest = request.use_rest;
+        cpt.top_level = request.top_level;
+        cpt.basic_editor = request.basic_editor;
+        cpt.page_builder = request.page_builder;
+        cpt.save();
+
+        context.res.send('success');
+    }
+
+    static async deleteCPT(request,context) {
+
+        const CustomPostType = require('../models/CustomPostType');
+      
+        await CustomPostType.destroy({
+            where: {
+                id : parseInt(request.id)
+            }
+        })
+
+        context.res.send('success');
     }
 
 } 

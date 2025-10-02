@@ -48,7 +48,7 @@ class Router {
 
         let method = context.req.method.toLowerCase();
         // Support _method override in body (for HTML forms etc)
-        if (context.req.body && typeof rcontext.req.body._method === 'string') {
+        if (context.req.body && typeof context.req.body._method === 'string') {
             const override = context.req.body._method.toLowerCase();
             if (['delete', 'patch', 'put', 'post', 'get'].includes(override)) method = override;
         }
@@ -90,14 +90,14 @@ class Router {
             let result;
             
             if (typeof matched.callable === 'function') {
-                result = await matched.callable(request, req, res);
+                result = await matched.callable(request, context.req, context.res);
             } else if (Controller.prototype && typeof Controller.prototype[methodName] === 'function') {
                 const instance = new Controller();
                 result = await instance[methodName](request, context);
             } else {
                 return res.status(500).json({ error: `Method "${methodName}" not found in "${className}"` });
             }
-            
+
             // Only send response if not already sent by controller
             // if (!res.headersSent) {
             //     if (Array.isArray(result) || typeof result === 'object') {

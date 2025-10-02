@@ -1,0 +1,17 @@
+.menu-item {
+    
+    cursor:pointer;
+
+    .sub-menu {
+        display:none;
+        background:#CCC;
+    }
+
+    &.open {
+       .sub-menu {
+        display:block;
+       }
+    }
+
+   
+}

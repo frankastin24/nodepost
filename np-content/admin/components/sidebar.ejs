@@ -1,5 +1,5 @@
 <aside id="dash-sidebar">
-   <a href="/np-admin"><img src="/logo.svg"/></a>
+   <a href="/<%= adminURL %>"><img width="100" src="/np-content/admin/img/logo.svg"/></a>
    <ul>
 
       <% for (menuItem of global.admin_menu ) { %>
@@ -14,15 +14,18 @@
         <h4><%= menuItem.pageName %></h4>
         
         </div>
+
         <ul class="sub-menu">
+
               <% for (subMenuItem of menuItem.subMenu) { %>
 
                 <li>
-                    <a href="<%= subMenuItem.pageUrl %>"><%= subMenuItem.pageUrl %></a>
+                    <a href="/<%= adminURL %>/<%= subMenuItem.pageURL %>"><%= subMenuItem.pageName %></a>
                 </li>
 
              <% } %>
-        </ul>
+        
+            </ul>
       </li>
 
       <% } %>

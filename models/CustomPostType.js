@@ -8,37 +8,12 @@ const CustomPostType = global.npdb.define('np_custom_post_types', {
   },
   title: DataTypes.STRING,
   slug: DataTypes.STRING,
-  archiveRewrite: DataTypes.STRING,
-  postRewrite: DataTypes.STRING,
-  useBasicEditor: DataTypes.BOOLEAN,
-  useAdvancedEditor: DataTypes.BOOLEAN,
-  useRest: DataTypes.BOOLEAN,
-  menuName: DataTypes.STRING,
+  menu_name: DataTypes.STRING,
+  basic_editor: DataTypes.BOOLEAN,
+  page_builder: DataTypes.BOOLEAN,
+  use_rest: DataTypes.BOOLEAN,
+  top_level: DataTypes.BOOLEAN
 });
-
-let Pages = CustomPostType.findAll({
-  where : {
-    slug : 'pages'
-  }
-})
-
-if(Pages.length == 0) {
-
- Pages = CustomPostType.build({
-
-    title: 'Pages',
-    slug: 'pages',
-    archiveRewrite : '/',
-    postRewrite: '/',
-    useBasicEditor:true,
-    usePageBuilder: true,
-    useRest:false,
-    menuName:'Pages'
-
-})
-
- Pages.save();
-}
 
 module.exports = CustomPostType;
 
