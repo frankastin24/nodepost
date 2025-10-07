@@ -17,6 +17,7 @@ const moveUp = (element) => {
     if(index > 0) {
     store.currentContainer.splice(index,1);
     store.currentContainer.splice(index -1 ,0, element);
+    store.currentElement = element;
     }
 
    
@@ -29,6 +30,7 @@ const moveDown = (element) => {
     if(index < length) {
     store.currentContainer.splice(index,1);
     store.currentContainer.splice(index +1 ,0, element);
+    store.currentElement = element;
     }
 
 }
