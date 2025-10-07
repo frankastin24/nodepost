@@ -62,3 +62,17 @@
         }
     }
 }
+
+.bold {
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.italic {
+    font-style: italic;
+    cursor:pointer;
+}
+
+.current-element {
+    border:2px blue solid;
+}

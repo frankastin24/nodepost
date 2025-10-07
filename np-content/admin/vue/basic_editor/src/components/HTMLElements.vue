@@ -35,7 +35,7 @@ defineProps(['element']);
 
 import {useAppStore} from '../store/store';
 import Column from './Column.vue';
-import Heading from './Heading.vue';
+import Heading from './Heading/Heading.vue';
 
 const store = useAppStore();
 

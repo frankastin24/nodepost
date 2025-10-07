@@ -196,4 +196,18 @@ input {
   cursor: pointer;
   border: 1px solid #000;
   padding: 4px 10px;
+}
+
+.bold {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.italic {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.current-element {
+  border: 2px blue solid;
 }/*# sourceMappingURL=index.css.map */

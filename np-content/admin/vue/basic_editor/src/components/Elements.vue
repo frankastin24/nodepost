@@ -69,7 +69,11 @@ const addHeading = () => {
         classes : 'np-element np-heading',
         align : 'left',
         color: '#000',
-        bold:true
+        bold:true,
+        showLevels:false,
+        showAligns:false,
+        showElementOptions:false,
+        content:'',
     }
     store.currentContainer.push(heading);
     store.currentElement = heading;
