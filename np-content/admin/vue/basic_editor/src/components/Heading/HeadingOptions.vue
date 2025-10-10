@@ -21,11 +21,14 @@
 import {useAppStore} from '../../store/store';
 
 const store = useAppStore();
+
 defineProps(['element']);
+
 import SelectLevel from './SelectLevel.vue';
 import SelectAlign from './SelectAlign.vue';
 import ElementOptions from '../ElementOptions.vue';
 import MoveElement from '../MoveElement.vue';
+
 const changeBold = (element) => {
     element.bold = !element.bold;
 }

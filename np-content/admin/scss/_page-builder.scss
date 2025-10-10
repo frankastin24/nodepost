@@ -76,3 +76,30 @@
 .current-element {
     border:2px blue solid;
 }
+.drag-element {
+    height:10px;
+    position: relative;
+    .drop-bar {
+        height:10px;
+        background:#FFF;
+       
+    }
+    &.drag-over {
+        .drop-bar {
+            background:#000;
+        }
+    }
+}
+
+.drag-container {
+    position: relative;
+    .drag-handle {
+        position: absolute;
+        width:40px;
+        height:30px;
+        border:1px solid #000;
+        right:0;
+        top:-40px;
+        background:#FFF;
+    }
+}

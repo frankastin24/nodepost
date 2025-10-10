@@ -21,7 +21,7 @@ const selectElement = (element) => {
 }
 
 const classes = (element) => {
-    const isSelected = store.currentElement == element;
+    const isSelected = store.currentElement === element;
     
     const selectedClass = isSelected ? 'current-element' : '';
 
