@@ -79,18 +79,22 @@ const addHeading = () => {
     store.currentElement = heading;
 }
 
+const addParagraph = () => {
+    const paragraph = {
+        type:'paragraph',
+        classes : 'np-element np-paragraph',
+        align : 'left',
+        color: '#000',
+        showAligns:false,
+        showElementOptions:false,
+        content:'',
+    }
+    store.currentContainer.push(paragraph);
+    store.currentElement = paragraph;
+}
+
 const addImage = () => {
-   const image = {
-    type:'image',
-    media: null, 
-    width: '',
-    height: '',
-    size: 'fit',
-    position: '',
-    center:false,
-    classes: 'np-element np-image'
-   }
-   store.currentContainer.push(image);
+   store.showImageBrowser = true;
 }
 
 const addVideo = () => {

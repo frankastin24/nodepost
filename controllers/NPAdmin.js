@@ -342,6 +342,114 @@ class NPAdmin {
         context.res.send('success');
     }
 
+    static uploadImage(request,context) {
+    
+    const req = context.req;
+    const res = context.res;
+
+
+    const Busboy = require('busboy');
+    const fs = require('fs');
+    const path = require('path');
+
+    const busboy =  Busboy({ headers: req.headers });
+    let filename = '';
+    let folder = '';
+    let saveTo = '';
+    let fileSaved = false;
+
+    busboy.on('field', (fieldname, val) => {
+        if (fieldname === 'filename') filename = val;
+        if (fieldname === 'folder') folder = val;
+    });
+
+    busboy.on('file', (fieldname, file, fileInfo) => {
+        // If client sent filename as POST variable, use that; otherwise use fileInfo.filename
+        const actualFilename = filename || fileInfo.filename || `img_${Date.now()}.jpg`;
+        folder = folder ? folder.replace(/\/?$/, '/') : '';
+        const uploadDir = global.__app_path + '/np-content/uploads/images/' + folder;
+        if (!fs.existsSync(uploadDir)) fs.mkdirSync(uploadDir, { recursive: true });
+        saveTo = path.join(uploadDir, actualFilename);
+
+        const writeStream = fs.createWriteStream(saveTo);
+        file.pipe(writeStream);
+        file.on('end', () => { fileSaved = true; });
+    });
+
+    busboy.on('finish', () => {
+        if (fileSaved) {
+            res.send(JSON.stringify({
+                success: true,
+                filePath: '/np-content/uploads/images/' + folder + (filename || ''),
+
+            }));
+        } else {
+            res.status(500).send(JSON.stringify({
+                success: false,
+                message: 'File not written'
+            }));
+        }
+    });
+
+    req.pipe(busboy);
+    }
+
+    static getDirContents(request, context) {
+        const fs = require('fs');
+
+        const path = global.__app_path + request.filePath;
+
+        const entries = fs.readdirSync(path, { withFileTypes: true });
+        
+        const folders = [];
+        const files = [];
+
+        entries.forEach(entry => {
+
+            if (entry.isDirectory()) {
+                folders.push(entry.name);
+            } else if (entry.isFile()) {
+                files.push(entry.name);
+            }
+
+        });
+
+        context.res.send(JSON.stringify({files,folders}));
+    
+}
+
+static createDir(request,context) {
+    const fs = require('fs');
+        
+    const path = global.__app_path + request.folderPath;
+    
+  try {
+    
+    fs.mkdirSync(path, { recursive: true });
+    context.res.send(`Directory created at: ${path}`);
+
+  } catch (err) {
+    
+    context.res.send(`Error creating directory at ${path}:`, err.message);
+    
+
+  }
+}
+
+static renameFileFolder(request, context) {
+    const fs = require('fs');
+   const oldPath = global.__app_path + request.oldPath;
+   const newPath = global.__app_path + request.newPath;
+
+    try {
+  fs.renameSync(oldPath, newPath);
+  context.res.send(`Renamed '${oldPath}' to '${newPath}'`);
+} catch (err) {
+  context.res.send(`Error renaming '${oldPath}' to '${newPath}':`+ err.message);
+}
+}
+
+
 } 
 
 module.exports = NPAdmin;

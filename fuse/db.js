@@ -18,7 +18,8 @@ const initializeDB = async () => {
 
     sequelize = new Sequelize({
       dialect: 'sqlite',
-      storage: global.__app_path +'/postnode.sqlite' // <-- your file path here
+      storage: global.__app_path +'/postnode.sqlite' ,// <-- your file path here
+   logging: false
     });
 
   }

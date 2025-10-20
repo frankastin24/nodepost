@@ -29,6 +29,10 @@ ul,li {
     justify-content: center;
 }
 
+.space-between {
+    justify-content: space-between;
+}
+
 .align-center {
     align-items: center;
 }
@@ -66,6 +70,14 @@ input {
     border:1px solid #000;
     border-radius:15px;
     padding:10px 20px;
+}
+
+.small {
+    font-size: 10px;
+}
+
+h2 {
+    font-size: 20px;
 }
 
 button {

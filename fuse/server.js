@@ -8,7 +8,7 @@ const app = express();
 const port = 80;
 
 app.use(express.urlencoded({ extended: true }));
-
+app.use(express.json());
 app.use(session({
   secret: 'your-secret-key',            // Change this to a strong secret for your app
   resave: false,                        // Don't save session if unmodified
@@ -19,12 +19,14 @@ app.use(session({
   }),            // Set to true if using HTTPS
 }));
 
-app.use(contextMiddleware);
-
 app.use(serveStaticIfExists(global.__app_path));
 
 app.all('/{*any}', (req, res) => {
-    router.execute(req.context);
+  const context = {
+    req,
+    res,
+  }
+  router.execute(context);
 });
 
 app.listen(port, () => {

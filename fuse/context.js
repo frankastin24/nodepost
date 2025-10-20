@@ -7,5 +7,6 @@ module.exports = (req, res, next) => {
         post: null,            // initialize as needed
         // add more per-request data as necessary
     };
+    console.log(req)
     next();
 };

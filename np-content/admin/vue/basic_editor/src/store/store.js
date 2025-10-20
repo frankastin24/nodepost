@@ -6,7 +6,7 @@ export const useAppStore = defineStore('appStore', {
         currentElement : null,
         currentContainer:null,
         containers : [],
-        displayMediaLibrary : false,
+        showImageBrowser : true,
         displayElements:true
     }),
   })

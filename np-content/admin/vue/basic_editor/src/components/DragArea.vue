@@ -13,7 +13,6 @@ defineProps(['index','container']);
 let isDragOver = false;
 
 const onDragOver = () => {
-    console.log(dragElement)
     dragElement.value.classList.add('drag-over')
     isDragOver = true;
 }
@@ -34,7 +33,9 @@ const classes = () => {
 }
 
 const drop = (index) => {
-    console.log('dropped')
+  
+    dragElement.value.classList.remove('drag-over')
+    
     const currentElement = store.currentElement;
     const elementIndex = store.currentContainer.indexOf(currentElement);
 

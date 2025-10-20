@@ -90,7 +90,7 @@ class Router {
             let result;
             
             if (typeof matched.callable === 'function') {
-                result = await matched.callable(request, context.req, context.res);
+                result = await matched.callable(request,context);
             } else if (Controller.prototype && typeof Controller.prototype[methodName] === 'function') {
                 const instance = new Controller();
                 result = await instance[methodName](request, context);

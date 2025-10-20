@@ -28,6 +28,10 @@ ul, li {
   justify-content: center;
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 .align-center {
   align-items: center;
 }
@@ -65,6 +69,14 @@ form input {
   border: 1px solid #000;
   border-radius: 15px;
   padding: 10px 20px;
+}
+
+.small {
+  font-size: 10px;
+}
+
+h2 {
+  font-size: 20px;
 }
 
 button {
@@ -130,6 +142,21 @@ input {
 }
 .menu-item.open .sub-menu {
   display: block;
+}
+
+.dash-main input {
+  width: 40%;
+}
+
+.btn {
+  border: 1px solid blue;
+}
+
+.btn-large {
+  font-size: size 18px;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: blue;
 }
 
 .np-element {
@@ -230,9 +257,76 @@ input {
 .drag-container .drag-handle {
   position: absolute;
   width: 40px;
-  height: 30px;
+  height: 28px;
   border: 1px solid #000;
   right: 0;
-  top: -40px;
+  top: -29px;
   background: #FFF;
+}
+
+.move-element {
+  width: 80px !important;
+  padding: 0 !important;
+  height: 28px !important;
+}
+.move-element div {
+  min-width: 40px;
+  height: 30px;
+  border-right: 1px solid #000;
+  height: 28px !important;
+}
+.move-element div:last-child {
+  border-right: none;
+}
+
+#image-browser {
+  position: absolute;
+  top: 100px;
+  left: 10%;
+  width: 80%;
+  height: 400px;
+  background: #FFF;
+  border: 1px solid #000;
+  padding: 20px;
+}
+#image-browser h1 {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+#image-browser h2 {
+  font-size: 13px;
+  text-align: center;
+  margin-top: -24px;
+}
+#image-browser .file-browser-container {
+  overflow-y: scroll;
+  height: 300px;
+}
+#image-browser .file-browser-container .file-browser {
+  gap: 10px;
+  padding: 30px 0px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+}
+#image-browser .file-browser-container .file-browser .file-browser-item {
+  width: calc(20% - 12px);
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+#image-browser .file-browser-container .file-browser .file-browser-item input {
+  width: 90%;
+  display: block;
+  margin: 0px auto;
+  padding: 5px;
+  font-size: 11px;
+}
+#image-browser .file-browser-container .file-browser .file-browser-item.selected {
+  border: 2px solid blue;
 }/*# sourceMappingURL=index.css.map */

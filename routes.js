@@ -10,18 +10,18 @@ Admin Routes
 
 const adminURL = global.__env.ADMIN_URL;
 
-router.get(`/${adminURL}/install`,NPAdmin.install)
+router.get(`/${adminURL}/install`, NPAdmin.install)
 
-router.get(`/${adminURL}`,NPAdmin.index)
+router.get(`/${adminURL}`, NPAdmin.index)
 
-router.get(`/${adminURL}/[param1]`,NPAdmin.index)
+router.get(`/${adminURL}/[param1]`, NPAdmin.index)
 
-router.get(`/${adminURL}/[param1]/[param2]`,NPAdmin.index)
+router.get(`/${adminURL}/[param1]/[param2]`, NPAdmin.index)
 
-router.get(`/${adminURL}/[param1]/[param2]/[param3]`,NPAdmin.index)
-
-router.post('/api/np-admin/save-site-title',NPAdmin.saveSiteTitle );
-router.post('/api/np-admin/save-admin-creds',NPAdmin.saveAdminCreds );
+router.get(`/${adminURL}/[param1]/[param2]/[param3]`, NPAdmin.index)
+ 
+router.post('/api/np-admin/save-site-title', NPAdmin.saveSiteTitle );
+router.post('/api/np-admin/save-admin-creds', NPAdmin.saveAdminCreds );
 
 router.post('/api/np-admin/start-with-ignition', NPAdmin.startWithIgnition );
 router.post('/api/np-admin/start-with-page-builder', NPAdmin.startWithPageBuilder );
@@ -31,6 +31,12 @@ router.post('/api/np-admin/add-cpt', NPAdmin.addCPT );
 router.post('/api/np-admin/update-cpt', NPAdmin.updateCPT );
 
 router.post('/api/np-admin/delete-cpt', NPAdmin.deleteCPT );
+
+router.post('/api/np-admin/upload-image', NPAdmin.uploadImage);
+
+router.post('/api/np-admin/get-directory-contents', NPAdmin.getDirContents);
+router.post('/api/np-admin/create-directory', NPAdmin.createDir);
+router.post('/api/np-admin/rename-file-or-folder', NPAdmin.renameFileFolder);
 
 /*
 Load site

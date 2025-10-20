@@ -1,8 +1,7 @@
 <template>
-    <div class="move-element">
+    <div class="move-element flex">
         <div @click="moveUp(element)">up</div>
         <div @click="moveDown(element)">down</div>
-        <div @click="drag">drag</div>
     </div>
 </template>
 <script setup>

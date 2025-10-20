@@ -2,7 +2,7 @@
 
 <template>
     <div>
-        <div class="stage">
+        <div @click="selectRootContainer" class="stage">
             
             <DragArea index="0" container="-1"/>
             
@@ -16,7 +16,7 @@
         </div>
 
         <Elements/>
-    
+        <ImageBrowser/>
     </div>
 </template>
 
@@ -27,12 +27,18 @@ import HTMLElements from './components/HTMLElements.vue';
 import Elements from './components/Elements.vue';
 import DragContainer from './components/DragContainer.vue';
 import DragArea from './components/DragArea.vue';
+import ImageBrowser from './components/ImageBrowser/ImageBrowser.vue';
 import {useAppStore} from './store/store';
 
 const store = useAppStore();
 
+const selectRootContainer = () => {
+    store.currentContainer = store.rootElement;
+}
+
 onMounted(() => {
    store.currentContainer = store.rootElement;
+   store.containers.push(store.currentContainer);
 })
 
 

@@ -8,8 +8,8 @@
     
     <Heading :element="element" v-if="element.type == 'heading'"/>
     
-    <textarea @click="selectElement(element)" v-if="element.type == 'paragraph'"></textarea>
-    
+    <Paragraph :element="element" v-if="element.type == 'paragraph'"/>
+     
     <img @click="selectElement(element)" v-if="element.type == 'image' && element.media" :width="element.width" :height="element.height"  :src="element.media"/>
     
     <video @click="selectElement(element)" v-if="element.type == 'video'">
@@ -36,6 +36,7 @@ defineProps(['element']);
 import {useAppStore} from '../store/store';
 import Column from './Column.vue';
 import Heading from './Heading/Heading.vue';
+import Paragraph from './Paragraph/Paragraph.vue';
 
 const store = useAppStore();
 

@@ -5,8 +5,6 @@
 
     <ul v-if="element.displayElementOptions">
         <li @click="duplicate(element)">Duplicate</li>
-        <li @click="cut(element)">Cut</li>
-        <li @click="copy(element)">Copy</li>
         <li @click="remove(element)">Delete</li>
     </ul>
 
@@ -16,10 +14,27 @@
 <script setup>
 defineProps(['element']);
 
+import {useAppStore} from '../store/store';
+
+const store = useAppStore();
+
 const showElementOptionsDropdown = (element) => {
     element.displayElementOptions = !element.displayElementOptions;
     element.showLevels = false;
     element.showAligns = false;
     
+}
+
+const remove = (element) => {
+    const index = store.currentContainer.indexOf(element);
+    store.currentContainer.splice(index,1);
+}
+
+const duplicate = (element) => {
+     const newElement = Object.assign({},element);
+
+     const index = store.currentContainer.indexOf(element);
+
+     store.currentContainer.splice(index+1,0,newElement);
 }
 </script>

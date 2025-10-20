@@ -1,10 +1,10 @@
 <template>
-  <h1
+  <p
     ref="editable"
     contenteditable="true"
     @input="onInput"
     @blur="onInput"
-  ></h1>
+  ></p>
 </template>
 
 <script setup>
