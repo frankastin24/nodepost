@@ -1,17 +1,47 @@
-.menu-item {
-    
-    cursor:pointer;
-
-    .sub-menu {
-        display:none;
-        background:#CCC;
+#dash-sidebar {
+    width: 20%;
+    height: 100vh;
+    position: fixed;
+    background: #EEE;
+    header {
+        padding:20px;
+        p {
+            font-size: 16px;
+    margin-top: 10px;
+        }
     }
+    .menu-item {
+        padding: 20px;
 
-    &.open {
-       .sub-menu {
-        display:block;
-       }
+        padding-bottom: 0px;
+
+        cursor: pointer;
+
+        .title {
+            gap: 20px;
+            align-items: center;
+        }
+
+        .sub-menu {
+            display: none;
+            background: #CCC;
+           
+            margin-top:8px;
+            a {
+                 padding:6px;
+                margin-bottom:6px;
+                display:block;
+                border-bottom:1px solid #EEE;
+            }
+        }
+
+        &.open {
+            .sub-menu {
+                display: block;
+            }
+        }
+
+
     }
-
-   
 }
+

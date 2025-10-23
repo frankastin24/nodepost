@@ -195,17 +195,28 @@ const updateFolderContents = async () => {
 
 const addImages = () => {
   const selectedImages = files.value.filter((img) => img.selected)
+ 
   selectedImages.forEach((img) => {
+     
+    const image = new Image();
+    image.src = uploadsFilePath.value + currentFolder.value + '/' + img.name;
+
     const imageObj = {
       type: 'image',
       src: uploadsFilePath.value + currentFolder.value + '/' + img.name,
       width: 'auto',
       height: 'auto',
       cover: false,
+      contain: false,
+      grayscale: false,
+      sepia:false,
+      width:image.width,
+      height:image.height,
       opacity: 1
     }
     store.currentContainer.push(imageObj)
     store.currentElement = imageObj
+   
   })
 }
 

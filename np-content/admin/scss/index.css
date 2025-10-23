@@ -2,10 +2,20 @@
   display: none;
 }
 
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
 h1, h2, h3, h4, h5, h6, button, p, input, label, div, ul, li {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
 }
 
 ul, li {
@@ -26,6 +36,11 @@ ul, li {
 
 .justify-center {
   justify-content: center;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
 }
 
 .space-between {
@@ -133,17 +148,48 @@ input {
   gap: 20px;
 }
 
-.menu-item {
+#dash-sidebar {
+  width: 20%;
+  height: 100vh;
+  position: fixed;
+  background: #EEE;
+}
+#dash-sidebar header {
+  padding: 20px;
+}
+#dash-sidebar header p {
+  font-size: 16px;
+  margin-top: 10px;
+}
+#dash-sidebar .menu-item {
+  padding: 20px;
+  padding-bottom: 0px;
   cursor: pointer;
 }
-.menu-item .sub-menu {
+#dash-sidebar .menu-item .title {
+  gap: 20px;
+  align-items: center;
+}
+#dash-sidebar .menu-item .sub-menu {
   display: none;
   background: #CCC;
+  margin-top: 8px;
 }
-.menu-item.open .sub-menu {
+#dash-sidebar .menu-item .sub-menu a {
+  padding: 6px;
+  margin-bottom: 6px;
+  display: block;
+  border-bottom: 1px solid #EEE;
+}
+#dash-sidebar .menu-item.open .sub-menu {
   display: block;
 }
 
+.dash-main {
+  width: calc(80% - 40px);
+  margin-left: 20%;
+  padding: 20px;
+}
 .dash-main input {
   width: 40%;
 }
@@ -163,6 +209,15 @@ input {
   border: 1px solid #000;
 }
 
+.edit-post-title {
+  font-size: 30px;
+  font-weight: bold;
+  width: calc(70% - 20px) !important;
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px 0px;
+}
+
 .np-columns {
   padding: 10px;
   gap: 10px;
@@ -172,9 +227,62 @@ input {
   padding: 10px;
 }
 
+.stage {
+  width: 70%;
+  min-height: 400px;
+}
+
+.editor-aside {
+  width: 30%;
+  margin-top: -135px;
+}
+.editor-aside .tabs header button {
+  padding: 10px;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  background: #EEE;
+}
+.editor-aside .tabs header button:first-child {
+  border-right: 1px solid #CCC;
+}
+.editor-aside .tabs .tab {
+  border: 1px solid #EEE;
+  height: calc(100% - 56px);
+  width: calc(100% + 20px);
+}
+
+.container-icon {
+  width: 60%;
+  height: 10px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.column-icon {
+  width: 60%;
+  margin: auto;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.column-icon div {
+  width: 38%;
+  height: 10px;
+  border: 2px solid #000;
+  border-radius: 2px;
+}
+
+.paragraph-icon {
+  font-size: 20px;
+}
+
 .elements-panel {
-  border: 1px solid #000;
-  background: #CCC;
+  background: #EEE;
+  height: calc(30% + 10px);
+  padding: 20px;
+  position: fixed;
+  bottom: 0px;
 }
 .elements-panel .elements {
   gap: 10px;
@@ -184,25 +292,32 @@ input {
   width: calc(33% - 10px);
   display: block;
   min-width: calc(33% - 10px);
+  border: 1px solid #000;
+  padding: 5px;
+  border-radius: 4px;
 }
 
-.heading-options {
+.image {
+  max-width: 100%;
+}
+
+.all-element-options {
   position: absolute;
   margin-top: -29px;
 }
-.heading-options input {
+.all-element-options input {
   width: 40px;
   height: 30px;
 }
-.heading-options .select-level {
+.all-element-options .select-level {
   cursor: pointer;
 }
-.heading-options .select-level h4 {
+.all-element-options .select-level h4 {
   margin: 0;
   padding: 0;
   font-size: 16px;
 }
-.heading-options > div {
+.all-element-options > div {
   border: 1px solid #000;
   height: 23px;
   padding-top: 5px;
@@ -211,7 +326,7 @@ input {
   text-align: center;
   border-right: none;
 }
-.heading-options > div ul {
+.all-element-options > div ul {
   position: absolute;
   padding: 0;
   margin: 0;
@@ -219,7 +334,7 @@ input {
   margin-left: -1px;
   background: #FFF;
 }
-.heading-options > div ul li {
+.all-element-options > div ul li {
   cursor: pointer;
   border: 1px solid #000;
   padding: 4px 10px;

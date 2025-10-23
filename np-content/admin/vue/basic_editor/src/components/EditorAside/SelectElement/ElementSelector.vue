@@ -1,17 +1,42 @@
 <template>
-    <div v-if="store.displayElements" class="elements-panel">
-        
-        <div class="close">X</div>
-
+    <div class="elements-panel">
         <div class="flex elements">
-            <button @click="addContainer">Container</button>
-            <button @click="addColumns">Columns</button>
-            <button @click="addHeading">Heading</button>
-            <button @click="addParagraph">Paragraph</button>
-            <button @click="addImage">Image</button>
-            <button @click="addVideo">Video</button>
-            <button @click="addShortcode">Shortcode</button>
-            <button @click="addGallery">Gallery</button>  
+             <button @click="addHeading">
+                <h4 class="heading-icon">H1</h4>
+                <p>Heading</p>
+            </button>
+            <button @click="addParagraph">
+                <h4 class="paragraph-icon">¶</h4>
+                <p>Paragraph</p>
+            </button>
+            <button @click="addImage">
+                <img width="20" src="/np-content/admin/img/image-upload.svg"/>
+                <p>Image</p>
+            </button>
+            <button @click="addContainer">
+                <div class="container-icon"></div>
+                <p>Container</p>
+             </button>
+            <button @click="addColumns">
+                <div class="column-icon flex">
+                    <div></div>
+                    <div></div>
+                </div>
+                <p>Columns</p>
+            </button>
+           
+            <button @click="addVideo">
+                <img width="20" src="/np-content/admin/img/image-upload.svg"/>
+                <p>Video</p>
+            </button>
+            <button @click="addShortcode">
+                <h4>[  ]</h4>
+                <p>Shortcode</p>
+            </button>
+            <button @click="addGallery">
+                <img width="20" src="/np-content/admin/img/image-upload.svg"/>
+                <p>Gallery</p>
+            </button>  
         </div>
 
     </div>
@@ -19,7 +44,7 @@
 
 <script setup>
 
-import {useAppStore} from '../store/store';
+import {useAppStore} from '../../../store/store';
 
 const store = useAppStore();
 

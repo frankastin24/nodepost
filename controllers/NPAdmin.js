@@ -20,7 +20,7 @@ class NPAdmin {
             global.__cpts.forEach((CPT) => {
                 global.admin_menu.push({
                     pageName : CPT.title,
-                    dashIcon : false,
+                    dashIcon : 'posts',
                     subMenu : [
                         {
                             pageName: 'View All',
@@ -63,7 +63,7 @@ class NPAdmin {
 
             global.admin_menu.push({
                 pageName : 'CPT',
-                dashIcon : 'cpt',
+                dashIcon : 'posts',
                 subMenu: [
                     {
                             pageName: 'View All',
@@ -93,7 +93,7 @@ class NPAdmin {
 
             global.admin_menu.push({
                 pageName : 'Plugins',
-                dashIcon : 'plugin',
+                dashIcon : 'plugins',
                 subMenu: [
                     {
                             pageName: 'View All',
@@ -108,7 +108,7 @@ class NPAdmin {
 
             global.admin_menu.push({
                 pageName : 'Settings',
-                dashIcon : 'setting',
+                dashIcon : 'settings',
                 subMenu: [
                     {
                             pageName: 'General',

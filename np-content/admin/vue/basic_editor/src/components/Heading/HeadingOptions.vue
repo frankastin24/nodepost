@@ -1,5 +1,5 @@
 <template>
-    <div v-if="element == store.currentElement" class="heading-options flex">
+    <div v-if="element == store.currentElement" class="all-element-options flex">
            
            <SelectLevel :element="element"/>
            

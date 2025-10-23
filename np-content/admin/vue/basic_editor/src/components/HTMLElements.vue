@@ -6,11 +6,11 @@
         <Column :column="column" v-for="(column, index) in element.columns"/>
     </div>
     
-    <Heading :element="element" v-if="element.type == 'heading'"/>
+    <Heading @click="selectElement(element)" :element="element" v-if="element.type == 'heading'"/>
     
-    <Paragraph :element="element" v-if="element.type == 'paragraph'"/>
-     
-    <img @click="selectElement(element)" v-if="element.type == 'image' && element.media" :width="element.width" :height="element.height"  :src="element.media"/>
+    <Paragraph @click="selectElement(element)" :element="element" v-if="element.type == 'paragraph'"/>
+    
+    <Image :class="element == store.currentElement ? 'current-element' : ''" @click="selectElement(element)" :element="element" v-if="element.type == 'image'"/>
     
     <video @click="selectElement(element)" v-if="element.type == 'video'">
         <src v-if="element.media"></src>
@@ -37,7 +37,7 @@ import {useAppStore} from '../store/store';
 import Column from './Column.vue';
 import Heading from './Heading/Heading.vue';
 import Paragraph from './Paragraph/Paragraph.vue';
-
+import Image from './Image/Image.vue';
 const store = useAppStore();
 
 const selectElement = (currentElement) => {

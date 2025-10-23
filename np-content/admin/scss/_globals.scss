@@ -1,13 +1,20 @@
 .hidden {
     display:none;
 }
-
+body, html {
+    margin:0;
+    padding:0;
+}
 h1,h2,h3,h4,h5,h6,button,p,input,label,div,ul,li {
     font-family: "Roboto", sans-serif;
     margin:0;
     padding:0;
 }
 
+a {
+    color:#000;
+    text-decoration: none;
+}
 ul,li {
     list-style: none;
 }
@@ -27,6 +34,11 @@ ul,li {
 
 .justify-center {
     justify-content: center;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
 }
 
 .space-between {

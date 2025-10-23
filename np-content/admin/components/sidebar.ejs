@@ -1,14 +1,17 @@
 <aside id="dash-sidebar">
+   <header class="">
    <a href="/<%= adminURL %>"><img width="100" src="/np-content/admin/img/logo.svg"/></a>
+   <p >NodePost Admin</p>
+   </header>
    <ul>
 
       <% for (menuItem of global.admin_menu ) { %>
       
-      <li data-item-name="pages" class="menu-item">
-        <div class="title">
+      <li class="menu-item">
+        <div class="title flex">
 
         <% if(menuItem.dashIcon) { %>
-            <img src="/np-content/admin/dash-icons/<%= menuItem.dashIcon %>.svg"/>
+            <img width="25" src="/np-content/admin/img/<%= menuItem.dashIcon %>.svg"/>
         <% } %>
 
         <h4><%= menuItem.pageName %></h4>
