@@ -10,5 +10,9 @@ export const useAppStore = defineStore('appStore', {
         displayElements:true,
         activeTab:1,
         revisions: [],
+        postStatus: 'Draft',
+        imageType: 'image',
+        currentGallery: null,
+        featuredImage: false
     }),
   })

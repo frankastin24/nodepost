@@ -16,58 +16,50 @@
     gap: 10px;
 }
 
+.btn-blue {
+    background: #3f3f7a;
+    color: #FFF;
+    padding: 10px 20px;
+    border-radius: 6px;
+    margin: 10px 0px;
+    border: none;
+}
+
 .np-heading {
     padding: 10px;
 }
 
 .stage {
-    width: 70%;
+    width: calc(70% - 20px);
     min-height: 400px;
 }
 
-.editor-aside {
-    width: 30%;
-    margin-top: -135px;
 
-    .tabs {
-        header {
-            button {
-                padding: 10px;
-                border-top-left-radius: 5px;
-                border-top-right-radius: 5px;
-                background: #EEE;
-
-                &:first-child {
-                    border-right: 1px solid #CCC;
-                }
-            }
-        }
-        .tab {
-            border: 1px solid #EEE;
-    height: calc(100% - 56px);
-    width: calc(100% + 20px);
-        }
-    }
+.np-paragraph {
+    padding: 10px;
+    font-size: 18px;
 }
+
 .container-icon {
-    width:60%;
-    height:10px;
-    border:2px solid #000;
-    border-radius:2px;
-    margin:auto;
-    margin-bottom:5px;
+    width: 60%;
+    height: 10px;
+    border: 2px solid #000;
+    border-radius: 2px;
+    margin: auto;
+    margin-bottom: 5px;
 }
 
 .column-icon {
-     width:60%;
-     margin: auto;
+    width: 60%;
+    margin: auto;
     justify-content: space-between;
- margin-bottom:5px;
+    margin-bottom: 5px;
+
     div {
-        width:38%;
-        height:10px;
-        border:2px solid #000;
-        border-radius:2px;
+        width: 38%;
+        height: 10px;
+        border: 2px solid #000;
+        border-radius: 2px;
     }
 }
 

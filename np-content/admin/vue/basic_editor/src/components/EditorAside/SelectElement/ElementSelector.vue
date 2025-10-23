@@ -55,7 +55,9 @@ const addContainer = () => {
         backgroundColor: 'transparent',
         center: true,
         classes: 'np-container np-element',
-        elements: []
+        elements: [],
+        extraClasses : '',
+        id: '',
     }
 
     store.currentContainer.push(container);
@@ -67,17 +69,23 @@ const addColumns = () => {
         numberOfColums:2,
         gap:'0px',
         classes: 'np-element np-columns flex',
+        extraClasses : '',
+        id: '',
         columns : [
             { 
                 type: 'column',
                 width:'50%',
                 classes:'np-element',
+        extraClasses : '',
+        id: '',
                 elements: [],
             },
             {
                 type: 'column',
                 width:'50%',
                 classes: 'np-element',
+                extraClasses : '',
+                id: '',
                 elements : []
             }
         ]
@@ -92,6 +100,7 @@ const addHeading = () => {
         text : 'Heading',
         level : 'h1',
         classes : 'np-element np-heading',
+        id: '',
         align : 'left',
         color: '#000',
         bold:true,
@@ -99,6 +108,7 @@ const addHeading = () => {
         showAligns:false,
         showElementOptions:false,
         content:'',
+        extraClasses : '',
     }
     store.currentContainer.push(heading);
     store.currentElement = heading;
@@ -113,6 +123,8 @@ const addParagraph = () => {
         showAligns:false,
         showElementOptions:false,
         content:'',
+        extraClasses : '',
+        id: '',
     }
     store.currentContainer.push(paragraph);
     store.currentElement = paragraph;
@@ -130,7 +142,9 @@ const addVideo = () => {
     width: 'auto',
     height: 'auto',
     center:false,
-    classes:'np-element np-video'
+    classes:'np-element np-video',
+    extraClasses : '',
+    id: '',
    }
    store.currentContainer.push(video);
 
@@ -141,8 +155,9 @@ const addShortcode = () => {
     const shortcode = {
         type:'shortcode',
         codename: '',
-        classes: 'np-element np-shortcode'
-    
+        classes: 'np-element np-shortcode',
+        extraClasses : '',
+        id: '',
     }
    store.currentContainer.push(shortcode);
 
@@ -155,7 +170,9 @@ const addGallery = () => {
         elementsPerRow : 3,
         gap: 10,
         popup:true,
-        classes:'np-element np-gallery'
+        classes:'np-element np-gallery',
+        extraClasses : '',
+        id: '',
     }
 
     store.currentContainer.push(gallery);

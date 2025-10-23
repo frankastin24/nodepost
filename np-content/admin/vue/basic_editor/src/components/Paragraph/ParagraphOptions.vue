@@ -1,19 +1,19 @@
 <template>
-  <div v-if="element === store.currentElement" class="heading-options flex">
-    <button
+  <div v-if="element === store.currentElement" class="all-element-options flex">
+    <div
       type="button"
       class="bold"
       title="Bold"
       @mousedown.prevent="wrapSelection('b')"
       aria-label="Bold"
-    >B</button>
-    <button
+    >B</div>
+    <div
       type="button"
       class="italic"
       title="Italic"
       @mousedown.prevent="wrapSelection('em')"
       aria-label="Italic"
-    >i</button>
+    >i</div>
     <input
       type="color"
       @change.prevent="changeColor"
