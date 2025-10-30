@@ -1,7 +1,7 @@
 <template>
     <div class="move-element flex">
-        <div @click="moveUp(element)">up</div>
-        <div @click="moveDown(element)">down</div>
+        <div @click="moveUp(element)"><img width="20" src="/np-content/admin/img/chevron-up.svg"/></div>
+        <div @click="moveDown(element)"><img width="20" src="/np-content/admin/img/chevron-down.svg"/></div>
     </div>
 </template>
 <script setup>

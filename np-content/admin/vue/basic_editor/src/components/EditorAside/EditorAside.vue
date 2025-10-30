@@ -15,8 +15,11 @@
                 <AllElementsAside v-if="store.currentElement" />
             </div>
             <div v-if="store.activeTab === 1" class="tab post-options-aside">
-                <button class="btn btn-blue btn-medium">Publish</button>
-                <button class="btn btn-blue btn-medium">Save Draft</button>
+                <div class="flex space-between">
+                    <button style="width:46%" class="btn btn-blue btn-medium">Preview</button>
+                <button style="width:46%" class="btn btn-blue btn-medium">Publish</button>
+                <button style="width:46%" class="btn btn-blue btn-medium">Save Draft</button>
+                </div>
                 <p>Post Status: {{store.postStatus}}</p>
                 <p >Post Slug:</p>
                 <div class="flex">
@@ -27,7 +30,7 @@
 
                 <img width="60%" v-if="store.featuredImage" src="store.featuredImage.src"/>
                 
-                <button @click="selectFeaturedImage">
+                <button style="text-align:center;" @click="selectFeaturedImage">
                     <img width="50" src="/np-content/admin/img/image-upload.svg"/>
                     <p class="small">Select Featured Image</p>
                 </button>

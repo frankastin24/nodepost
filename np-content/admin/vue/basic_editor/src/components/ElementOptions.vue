@@ -5,7 +5,6 @@
 
     <ul v-if="element.displayElementOptions">
         <li @click="duplicate(element)">Duplicate</li>
-        <li @click="remove(element)">Delete</li>
     </ul>
 
 </div>

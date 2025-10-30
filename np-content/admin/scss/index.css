@@ -218,11 +218,6 @@ input {
   margin: 10px 0px;
 }
 
-.np-columns {
-  padding: 10px;
-  gap: 10px;
-}
-
 .btn-blue {
   background: #3f3f7a;
   color: #FFF;
@@ -230,20 +225,6 @@ input {
   border-radius: 6px;
   margin: 10px 0px;
   border: none;
-}
-
-.np-heading {
-  padding: 10px;
-}
-
-.stage {
-  width: calc(70% - 20px);
-  min-height: 400px;
-}
-
-.np-paragraph {
-  padding: 10px;
-  font-size: 18px;
 }
 
 .container-icon {
@@ -278,115 +259,29 @@ input {
   padding: 20px;
   position: fixed;
   bottom: 0px;
+  width: 24%;
 }
-.elements-panel .elements {
+.elements-panel .elements h4 {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+}
+.elements-panel .elements .flex {
   gap: 10px;
   flex-wrap: wrap;
+  margin-bottom: 10px;
 }
-.elements-panel .elements button {
+.elements-panel .elements .flex button {
   width: calc(33% - 10px);
   display: block;
   min-width: calc(33% - 10px);
   border: 1px solid #000;
   padding: 5px;
   border-radius: 4px;
+  font-size: 12px;
 }
-
-.image {
-  max-width: 100%;
-}
-
-.all-element-options {
-  position: absolute;
-  margin-top: -29px;
-}
-.all-element-options input {
-  width: 40px;
-  height: 30px;
-}
-.all-element-options .select-level {
-  cursor: pointer;
-}
-.all-element-options .select-level h4 {
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-}
-.all-element-options > div {
-  border: 1px solid #000;
-  height: 23px;
-  padding-top: 5px;
-  background: #FFF;
-  width: 40px;
-  text-align: center;
-  border-right: none;
-}
-.all-element-options > div ul {
-  position: absolute;
-  padding: 0;
-  margin: 0;
-  margin-top: 4px;
-  margin-left: -1px;
-  background: #FFF;
-}
-.all-element-options > div ul li {
-  cursor: pointer;
-  border: 1px solid #000;
-  padding: 4px 10px;
-}
-
-.bold {
-  font-weight: bold;
-  cursor: pointer;
-}
-
-.italic {
-  font-style: italic;
-  cursor: pointer;
-}
-
-.current-element {
-  border: 2px blue solid;
-}
-
-.drag-element {
-  height: 10px;
-  position: relative;
-}
-.drag-element .drop-bar {
-  height: 10px;
-  background: #FFF;
-}
-.drag-element.drag-over .drop-bar {
-  background: #000;
-}
-
-.drag-container {
-  position: relative;
-}
-.drag-container .drag-handle {
-  position: absolute;
-  width: 40px;
-  height: 28px;
-  border: 1px solid #000;
-  right: 0;
-  top: -29px;
-  background: #FFF;
-}
-
-.move-element {
-  width: 80px !important;
-  padding: 0 !important;
-  height: 28px !important;
-}
-.move-element div {
-  min-width: 40px;
-  height: 30px;
-  border-right: 1px solid #000;
-  height: 28px !important;
-}
-.move-element div:last-child {
-  border-right: none;
+.elements-panel .elements .flex button h4 {
+  margin-bottom: 2px;
 }
 
 #image-browser {
@@ -480,4 +375,234 @@ input {
   width: calc(50% - 40px);
   margin-bottom: 10px;
   display: block;
+}
+
+.all-element-options {
+  position: absolute;
+  margin-top: -29px;
+}
+.all-element-options input {
+  width: 40px;
+  height: 30px;
+}
+.all-element-options .select-level {
+  cursor: pointer;
+}
+.all-element-options .select-level h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+.all-element-options > div {
+  border: 1px solid #000;
+  height: 23px;
+  padding-top: 5px;
+  background: #FFF;
+  width: 40px;
+  text-align: center;
+  border-right: none;
+}
+.all-element-options > div ul {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  margin-top: 4px;
+  margin-left: -1px;
+  background: #FFF;
+}
+.all-element-options > div ul li {
+  cursor: pointer;
+  border: 1px solid #000;
+  padding: 4px 10px;
+}
+
+.link-input-container {
+  width: 220px;
+  background: #FFF;
+  height: 50px;
+  padding: 20px;
+  padding-top: 40px;
+  height: 30px;
+  position: absolute;
+  z-index: 40;
+}
+.link-input-container .link-placeholder {
+  text-align: left;
+  padding-left: 10px;
+}
+.link-input-container .link-input {
+  height: 20px;
+  border: 1px solid blue;
+  padding: 10px;
+  position: absolute;
+  text-align: left;
+  margin-top: -32px;
+  width: calc(100% - 40px);
+}
+.link-input-container .blinking-cursor {
+  font-weight: bold;
+  color: #333;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bold {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.italic {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.move-element {
+  width: 80px !important;
+  padding: 0 !important;
+  height: 28px !important;
+  position: absolute;
+  right: 40px;
+  margin-top: -28px;
+  background: #FFF;
+  border: 1px solid #000;
+  border-bottom: none;
+  border-right: none;
+}
+.move-element div {
+  min-width: 40px;
+  height: 24px;
+  padding-top: 4px;
+  height: 24px !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drag-container {
+  position: relative;
+}
+.drag-container .drag-handle {
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  border: 1px solid #000;
+  border-bottom: none;
+  border-left: none;
+  right: 0;
+  top: -28px;
+  background-image: url(/np-content/admin/img/drag.svg);
+  background-size: 60%;
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 2px;
+  cursor: pointer;
+  background-position: center;
+}
+.drag-container .drag-handle img {
+  width: 24px;
+}
+
+.spacer-options {
+  position: absolute;
+  border: 1px solid #000;
+  padding: 10px;
+  margin-top: -56px;
+  background: #FFF;
+  margin-left: -2px;
+  gap: 20px;
+  align-items: center;
+  width: 140px;
+  padding-left: 20px;
+}
+.spacer-options input {
+  padding: 5px;
+  font-size: 15px;
+}
+
+.drag-element {
+  height: 20px;
+  position: relative;
+}
+.drag-element .drop-bar {
+  height: 20px;
+  background: #FFF;
+  text-align: center;
+}
+.drag-element .drop-bar img {
+  height: 18px;
+  width: auto;
+  position: absolute;
+  margin-top: 1px;
+  z-index: 10;
+}
+.drag-element.drag-over .drop-bar {
+  background: #000;
+}
+
+.np-paragraph {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.np-container {
+  width: calc(100% - 42px);
+  padding: 20px;
+}
+
+.current-container {
+  border: 2px solid green;
+}
+
+.np-columns {
+  padding: 10px;
+  gap: 10px;
+}
+
+.np-heading {
+  padding: 10px;
+}
+
+.stage {
+  width: calc(70% - 64px);
+  min-height: 400px;
+  padding: 20px;
+  border: 1px solid #000;
+}
+
+.image {
+  max-width: 100%;
+}
+
+.current-element {
+  border: 2px blue solid;
+}
+
+.link {
+  text-decoration: underline;
+  color: blue;
+}
+
+.np-spacer .flex-center {
+  height: 100%;
+}
+
+.button-icon {
+  width: 50%;
+  padding-top: 2px;
+  height: 15px;
+  border: 1px solid #000;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 2px;
 }/*# sourceMappingURL=index.css.map */

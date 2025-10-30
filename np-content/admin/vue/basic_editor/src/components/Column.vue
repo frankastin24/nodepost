@@ -1,7 +1,18 @@
 <template>
     
-    <div @click="selectElement(column)"  :style="columnStyles(column)" :class="column.classes">
-         <HTMLElements :element="element" v-for="element in column.elements" /> 
+    <div @click.stop="selectElement(column)"  :style="columnStyles(column)" :class="[column.classes,(column == store.currentElement ? 'current-element' : '') ,(column.elements == store.currentContainer ? 'current-container' : '')]">
+        
+        <DragArea index="0" :containerIndex="column.index" />
+
+        <div v-for="(element,index) in column.elements">
+            
+            <DragContainer :containerIndex="column.index" :element="element">
+                <HTMLElements :container="column.elements" :element="element" />
+            </DragContainer>
+
+            <DragArea :index="(index + 1)" :containerIndex="column.index" />
+
+        </div>
     </div>
 
 </template>
@@ -11,13 +22,14 @@ defineProps(['column']);
 
 import {useAppStore} from '../store/store';
 import HTMLElements from './HTMLElements.vue';
-
+import DragArea from './DragArea.vue';
+import DragContainer from './DragContainer.vue';
 const store = useAppStore();
 
 const columnStyles = (column) => {
     return {
         width : column.width,
-        minWidth : `calc(${column.width} - 7px)`,
+        minWidth : `calc(${column.width} - 47px)`,
         minHeight: '100px'
     }
 }

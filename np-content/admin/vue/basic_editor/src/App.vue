@@ -3,15 +3,15 @@
         <input placeholder="Post Title" type="text" class="edit-post-title" v-model="store.postTitle"/>
         <div class="flex">
             
-            <div @click="selectRootContainer" class="stage">
+            <div @click="selectRootContainer" :class="['stage','root-container',(store.rootElement == store.currentContainer ? 'current-container':'')]">
 
-                <DragArea index="0" container="-1" />
+                <DragArea index="0" :containerIndex="0" />
 
                 <div v-for="(element, index) in store.rootElement">
-                    <DragContainer :element="element">
-                        <HTMLElements :element="element" />
+                    <DragContainer containerIndex="0" :element="element">
+                        <HTMLElements :container="store.rootElement" :element="element" />
                     </DragContainer>
-                    <DragArea :index="(index + 1)" container="-1" />
+                    <DragArea :index="(index + 1)" :containerIndex="0" />
                 </div>
 
             </div>

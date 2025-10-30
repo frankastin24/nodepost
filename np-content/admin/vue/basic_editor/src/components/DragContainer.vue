@@ -1,44 +1,60 @@
 <template>
-<div draggable="true" @dragstart="onDragStart" @dragend="onDragEnd" class="drag-container">
-    <div v-if="store.currentElement == element" @mousedown="enableDrag" @mouseup="disableDrag"
-      @mouseleave="disableDrag" class="drag-handle">+</div>
+  <div
+    @dragstart.stop="onDragStart($event, containerIndex,dragEnabled)"
+    @dragend.stop="onDragEnd"
+    draggable="true"
+    class="drag-container"
+  >
+  <div @click="duplicateElement(element)" class="duplicate-element"><img width="20" src="/np-content/admin/img/bin.svg"/></div>
+    <div @click="deleteElement(element)" class="delete-element"><img width="20" src="/np-content/admin/img/bin.svg"/></div>
+    <MoveElement v-if="store.currentElement == element" :element="element" />
+
+    <div
+      v-if="store.currentElement == element"
+      class="drag-handle"
+      @mousedown="enableDrag(dragEnabled)"
+      @mouseup="disableDrag(dragEnabled)"
+      @mouseleave="disableDrag(dragEnabled)"
+    >
+      
+    </div>
     <slot></slot>
-</div>
+  </div>
 </template>
 
 <script setup>
+import { ref } from 'vue'
+import { useAppStore } from '../store/store'
+const store = useAppStore()
 
-import { ref, computed } from 'vue'
+defineProps(['element', 'containerIndex'])
+import MoveElement from './MoveElement.vue'
 
-import {useAppStore} from '../store/store';
+const deleteElement = (element) => {
+    const index = store.currentContainer.indexOf(element);
+    store.currentContainer.splice(index,1);
+}
 
-const store = useAppStore();
-
-defineProps(['element']);
-
-const dragging = ref(false)
-const dragEnabled = ref(false)
-const dropped = ref(false)
+// Use a plain variable for dragEnabled!
+let dragEnabled = false
 
 function enableDrag() {
-  dragEnabled.value = true
+  dragEnabled = true
 }
 
 function disableDrag() {
-  dragEnabled.value = false
+  dragEnabled = false
 }
 
-function onDragStart(event) {
-  if (!dragEnabled.value) {
+function onDragStart(event, containerIndex) {
+  if (!dragEnabled) {
     event.preventDefault()
     return
   }
-  dragging.value = true
-  event.dataTransfer.setData('text/plain', 'dragged-element')
+  event.dataTransfer.setData('containerIndex', containerIndex)
 }
 
 function onDragEnd() {
-  dragging.value = false
+  dragEnabled = false
 }
-
 </script>
