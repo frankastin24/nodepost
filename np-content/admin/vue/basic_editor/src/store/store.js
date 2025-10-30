@@ -13,6 +13,12 @@ export const useAppStore = defineStore('appStore', {
         postStatus: 'Draft',
         imageType: 'image',
         currentGallery: null,
-        featuredImage: false
+        featuredImage: false,
+        imageMode: 'container',
+        /* 
+        featured
+        container
+        gallery
+        */
     }),
   })

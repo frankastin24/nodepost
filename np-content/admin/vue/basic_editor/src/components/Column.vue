@@ -1,6 +1,6 @@
 <template>
     
-    <div @click.stop="selectElement(column)"  :style="columnStyles(column)" :class="[column.classes,(column == store.currentElement ? 'current-element' : '') ,(column.elements == store.currentContainer ? 'current-container' : '')]">
+    <div @click.stop="selectElement(column)"  :style="columnStyles(column)" :class="[column.classes,(column.elements == store.currentContainer ? 'current-container' : '')]">
         
         <DragArea index="0" :containerIndex="column.index" />
 

@@ -20,7 +20,6 @@
     </div>
     <input type="color" @change.prevent="changeColor" title="Text color" aria-label="Text color" />
     <SelectAlign :element="element" />
-    <ElementOptions :element="element" />
   </div>
 </template>
 
@@ -28,7 +27,6 @@
 import { ref } from 'vue';
 import { useAppStore } from '../../store/store'
 import SelectAlign from './SelectAlign.vue'
-import ElementOptions from '../ElementOptions.vue'
 const linkPlaceHolderText = "Search or enter URL";
 const linkPlaceHolder = ref(linkPlaceHolderText);
 const store = useAppStore()

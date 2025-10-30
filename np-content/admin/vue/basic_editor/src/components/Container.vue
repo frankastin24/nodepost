@@ -1,5 +1,5 @@
 <template>
-    <div @click.stop="selectContainer(element)" :data-container-index="element.index" :style="elementStyles(element)" :class="[element.classes,(store.currentElement == element ? 'current-element':''),(store.currentContainer == element.elements ? 'current-container':'')]">
+    <div @click.stop="selectContainer(element)" :data-container-index="element.index" :style="elementStyles(element)" :class="[element.classes,(store.currentContainer == element.elements ? 'current-container':'')]">
          <DragArea index="0" :containerIndex="element.index" />
 
            <div v-for="(subElement,index) in element.elements">

@@ -1,6 +1,9 @@
 <template>
     <div>
         <input placeholder="Post Title" type="text" class="edit-post-title" v-model="store.postTitle"/>
+        
+        <FeaturedImage />
+
         <div class="flex">
             
             <div @click="selectRootContainer" :class="['stage','root-container',(store.rootElement == store.currentContainer ? 'current-container':'')]">
@@ -34,6 +37,7 @@ import DragContainer from './components/DragContainer.vue';
 import DragArea from './components/DragArea.vue';
 import ImageBrowser from './components/ImageBrowser/ImageBrowser.vue';
 import { useAppStore } from './store/store';
+import FeaturedImage from './components/FeaturedImage.vue'
  
 
 const store = useAppStore();

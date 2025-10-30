@@ -84,7 +84,7 @@ const addContainer = () => {
         background: 'transparent',
         backgroundSize: 'cover',
         center: true,
-        classes: 'np-container np-element',
+        classes: 'np-container ',
         elements: [],
         extraClasses: '',
         id: '',
@@ -105,7 +105,7 @@ const addColumns = () => {
         type: 'columns',
         numberOfColums: 2,
         gap: '0px',
-        classes: 'np-element np-columns flex',
+        classes: ' np-columns flex',
         extraClasses: '',
         id: '',
         columns: [
@@ -147,7 +147,7 @@ const addHeading = () => {
         type: 'heading',
         text: 'Heading',
         level: 'h1',
-        classes: 'np-element np-heading',
+        classes: ' np-heading',
         id: '',
         align: 'left',
         color: '#000',
@@ -165,7 +165,7 @@ const addHeading = () => {
 const addParagraph = () => {
     const paragraph = {
         type: 'paragraph',
-        classes: 'np-element np-paragraph',
+        classes: ' np-paragraph',
         align: 'left',
         color: '#000',
         showAligns: false,
@@ -179,6 +179,7 @@ const addParagraph = () => {
 }
 
 const addImage = () => {
+    store.imageMode = 'container';
     store.showImageBrowser = true;
 }
 
@@ -190,7 +191,7 @@ const addVideo = () => {
         width: 'auto',
         height: 'auto',
         center: false,
-        classes: 'np-element np-video',
+        classes: ' np-video',
         extraClasses: '',
         id: '',
     }
@@ -203,7 +204,7 @@ const addShortcode = () => {
     const shortcode = {
         type: 'shortcode',
         codename: '',
-        classes: 'np-element np-shortcode',
+        classes: ' np-shortcode',
         extraClasses: '',
         id: '',
     }
@@ -218,7 +219,7 @@ const addGallery = () => {
         elementsPerRow: 3,
         gap: 10,
         popup: true,
-        classes: 'np-element np-gallery',
+        classes: ' np-gallery',
         extraClasses: '',
         id: '',
     }

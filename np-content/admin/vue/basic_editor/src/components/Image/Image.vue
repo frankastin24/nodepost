@@ -1,11 +1,10 @@
 <template>
-   <div class="image np-element" :style="imageStyles(element)" >
-   <ImageOptions :element="element"/>
+   <div class="image" :style="imageStyles(element)" >
+   
    </div>
 </template>
 <script setup>
 defineProps(['element']);
-import ImageOptions from './ImageOptions.vue';
 
 const imageStyles = (element) => {
 

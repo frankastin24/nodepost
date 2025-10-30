@@ -15,27 +15,17 @@
                 <AllElementsAside v-if="store.currentElement" />
             </div>
             <div v-if="store.activeTab === 1" class="tab post-options-aside">
-                <div class="flex space-between">
-                    <button style="width:46%" class="btn btn-blue btn-medium">Preview</button>
-                <button style="width:46%" class="btn btn-blue btn-medium">Publish</button>
-                <button style="width:46%" class="btn btn-blue btn-medium">Save Draft</button>
-                </div>
-                <p>Post Status: {{store.postStatus}}</p>
-                <p >Post Slug:</p>
-                <div class="flex">
-                <p>http://localhost/portfolio/</p>
-                <input v-model="store.postSlug" type="text"/>
-                </div>
-                <p>Featured Image:</p>
-
-                <img width="60%" v-if="store.featuredImage" src="store.featuredImage.src"/>
                 
-                <button style="text-align:center;" @click="selectFeaturedImage">
-                    <img width="50" src="/np-content/admin/img/image-upload.svg"/>
-                    <p class="small">Select Featured Image</p>
-                </button>
+                <div class="">
+                    <button class="btn btn-blue btn-medium">Publish</button>
+                    <button class="btn btn-blue btn-medium">Preview</button>
+                    <button class="btn btn-blue btn-medium">Save Draft</button>
+                </div>
+                
+                <h4>POST STATUS: {{store.postStatus.toUpperCase()}}</h4>
+                
 
-                <p >Revisions:</p>
+                <h4>REVISIONS</h4>
                 <p v-if="store.revisions.length === 0" class="small">No revisions saved</p>
                 <ul>
                     <li v-for="revision in store.revisions">{{ revision.time }} <button class="btn btn-small" @click="loadRevision(revison)">Restore</button></li>

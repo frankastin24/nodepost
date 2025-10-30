@@ -10,7 +10,6 @@
            
           <SelectAlign :element="element"/>
           
-          <ElementOptions :element="element"/>
            
         </div>
     </template>
@@ -24,7 +23,6 @@ defineProps(['element']);
 
 import SelectLevel from './SelectLevel.vue';
 import SelectAlign from './SelectAlign.vue';
-import ElementOptions from '../ElementOptions.vue';
 
 const changeBold = (element) => {
     element.bold = !element.bold;

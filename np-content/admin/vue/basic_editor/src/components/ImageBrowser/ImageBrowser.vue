@@ -242,12 +242,18 @@ const selectImage = (file) => {
 }
 
 const addImages = () => {
-  const selectedImages = files.value.filter((img) => img.selected)
+  
+  const selectedImages = files.value.filter((img) => img.selected);
+
+  if(store.imageMode !== 'featured') {
+
   selectedImages.forEach((img) => {
     const image = new window.Image()
-    image.src = uploadsFilePath.value + currentFolder.value + '/' + img.name
 
-    const imageObj = {
+    image.src = uploadsFilePath.value + currentFolder.value + '/' + img.name
+    
+    
+      const imageObj = {
       type: 'image',
       src: uploadsFilePath.value + currentFolder.value + '/' + img.name,
       width: 'auto',
@@ -261,10 +267,16 @@ const addImages = () => {
       opacity: 1,
       blur: '0%'
     }
-
+    
     store.currentContainer.push(imageObj)
     store.currentElement = imageObj
+    img.selected = false;
+    
   })
+} else {
+  store.featuredImage = uploadsFilePath.value + currentFolder.value + '/' + selectedImages[0].name;
+  selectedImages[0].selected = false;
+}
   store.showImageBrowser = false
 }
 </script>

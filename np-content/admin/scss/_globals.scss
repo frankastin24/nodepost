@@ -28,6 +28,10 @@ ul,li {
     display:flex;
 }
 
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
 .flex-columns {
     flex-direction: column;
 }

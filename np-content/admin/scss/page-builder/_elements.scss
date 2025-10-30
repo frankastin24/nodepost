@@ -6,8 +6,12 @@
     width: calc(100% - 42px);
     padding: 20px;
 }
+[contenteditable]:focus {
+  outline: none; /* Or set to whatever you want */
+  border: none;
+}
 .current-container {
-    border:2px solid green;
+    border:2px solid green !important;
 }
 .np-columns {
     padding: 10px;
@@ -17,7 +21,7 @@
     padding: 10px;
 }
 .stage {
-    width: calc(70% - 64px);
+    width: calc(70% - 62px);
     min-height: 400px;
     padding:20px;
     border:1px solid #000;

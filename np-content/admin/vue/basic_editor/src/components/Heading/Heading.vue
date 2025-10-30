@@ -3,7 +3,7 @@
         
     <HeadingOptions :element="element"/>
 
-    <HeadingElement v-model="element.content" :class="classes(element)" :style="elementStyles(element)"/>
+    <HeadingElement v-model="element.content" :class="element.classes" :style="elementStyles(element)"/>
 
  </div>
 </template>
@@ -20,13 +20,6 @@ const selectElement = (element) => {
     store.currentElement = element;
 }
 
-const classes = (element) => {
-    const isSelected = store.currentElement === element;
-    
-    const selectedClass = isSelected ? 'current-element' : '';
-
-    return selectedClass + ' ' + element.classes;
-}
 
 const elementStyles = (element) => {
 
