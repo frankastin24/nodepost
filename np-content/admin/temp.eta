@@ -1,0 +1,182 @@
+
+      
+<div class="text-center height-100-vh flex flex-columns justify-center" id="install-select-database">
+        
+    <div class="header">
+
+        <h1><%= __("Thankyou for choosing NodePosts!") %></h1>
+
+          <h2><%= __("Let's get started!") %></h2>
+
+        <h3><%= __("Which Database would you like to use?") %></h3>
+
+        <p><%- __("If you are developing a site or your site is going to have a small amount of data with low traffic use SQLite. <br/> If your site is in production mode and a large amount of data or has high traffic use MySQL") %></p>
+        
+    </div>
+     <div class="buttons flex justify-center">
+        <button class="sqlite np-button-large">SQLite</button>
+        <button class="mysql np-button-large">MySQL</button>
+        </div>
+    </div>
+
+    <div class="hidden" id="install-set-db-creds">
+        <h1><%= __("Please add your MySQL credentials") %></h1>
+        <form>
+            <label><%= __("Hostname") %></label>
+            <input name="db_host" value="localhost"/>
+            <label><%= __("Database Name") %></label>
+            <input name="db_name" value=""/>
+            <label><%= __("Username") %></label>
+            <input name="db_name" value=""/>
+            <label><%= __("Password") %></label>
+            <input name="db_name" value=""/>
+            <button><%= __("Test connection") %></button>
+            <button class="next">Next</button>
+
+        </form>
+    </div>
+    <div class="text-center height-100-vh flex-columns justify-center hidden" id="install-site-name">
+
+        <h1><%= __("Please Enter Your Site Title & Tag line") %></h1>
+        
+        <form class="flex justify-center">
+            <div>
+            <input placeholder="<%= __("Site Title") %>" name="site_title" value="<%=  get_option('site_title') %>"/>
+            <p class="error hidden">Please enter a site title</p>
+            </div>
+            <div>
+            <input placeholder="<%= __("Tag Line") %>" name="tag_line" value="<%=  get_option('tag_line') %>"/>
+            </div>
+            <button class="save-site-title np-button-large">Next</button>
+            
+        </form>
+
+    </div>
+
+
+      
+       
+
+    
+
+    
+
+    <div class="hidden" id="install-site-name">
+
+        <h1><%= __("How would you like to begin?") %></h1>
+
+        <button><%= __("Create the site with AI") %></button>
+        
+        <button><%= __("Start with the Ignition theme") %></button>
+        
+        <button><%= __("Start with the PageBuilder theme") %></button>
+
+    </div>
+
+    <div class="hidden" id="install-create-account">
+
+        <h1>To use AI features you must login or create an account</h1>
+        
+        <h2>Create Account</h2>
+        
+        <form>
+            <label>Email address</label>
+            <input name="email"/>
+            <label>Full Name</label>
+            <input name="full name"/>
+            <label>Password</label>
+            <input type="password"/>
+            <label>Mobile Number</label>
+        </form>
+        
+        <h2>Or Login</h2>
+
+        <form>
+            <label>Email address</label>
+            <input name="email"/>
+            <label>Password</label>
+            <input type="password"/>
+        </form>
+
+    </div>
+
+
+
+        <div class="buttons flex justify-center">
+        <button class="sqlite np-button-large">SQLite</button>
+        <button class="mysql np-button-large">MySQL</button>
+        </div>
+    </div>
+
+    <div class="hidden" id="install-set-db-creds">
+        <h1><%= it.__("Please add your MySQL credentials") %></h1>
+        <form>
+            <label><%= it.__("Hostname") %></label>
+            <input name="db_host" value="localhost"/>
+            <label><%= it.__("Database Name") %></label>
+            <input name="db_name" value=""/>
+            <label><%= it.__("Username") %></label>
+            <input name="db_name" value=""/>
+            <label><%= it.__("Password") %></label>
+            <input name="db_name" value=""/>
+            <button><%= it.__("Test connection") %></button>
+            <button class="next">Next</button>
+        </form>
+    </div>
+
+    <div class="text-center height-100-vh flex-columns justify-center hidden" id="install-site-name">
+
+        <h1><%= it.__("Please Enter Your Site Title & Tag line") %></h1>
+        
+        <form class="flex justify-center">
+            <div>
+            <input placeholder="<%= it.__("Site Title") %>" name="site_title" value="<%= await get_option('site_title') %>"/>
+            <p class="error hidden">Please enter a site title</p>
+            </div>
+            <div>
+            <input placeholder="<%= it.__("Tag Line") %>" name="tag_line" value="<%=  get_option('site_title') %>"/>
+            </div>
+            <button class="save-site-title np-button-large">Next</button>
+            
+        </form>
+
+    </div>
+
+    <div class="hidden" id="install-site-name">
+
+        <h1><%= it.__("How would you like to begin?") %></h1>
+
+        <button><%= it.__("Create the site with AI") %></button>
+        
+        <button><%= it.__("Start with the Ignition theme") %></button>
+        
+        <button><%= it.__("Start with the PageBuilder theme") %></button>
+
+    </div>
+
+    <div class="hidden" id="install-create-account">
+
+        <h1>To use AI features you must login or create an account</h1>
+        
+        <h2>Create Account</h2>
+        
+        <form>
+            <label>Email address</label>
+            <input name="email"/>
+            <label>Full Name</label>
+            <input name="full name"/>
+            <label>Password</label>
+            <input type="password"/>
+            <label>Mobile Number</label>
+        </form>
+        
+        <h2>Or Login</h2>
+
+        <form>
+            <label>Email address</label>
+            <input name="email"/>
+            <label>Password</label>
+            <input type="password"/>
+        </form>
+
+    </div>

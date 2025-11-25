@@ -1,0 +1,165 @@
+.hidden {
+    display:none;
+}
+body, html {
+    margin:0;
+    padding:0;
+}
+h1,h2,h3,h4,h5,h6,button,p,input,label,div,ul,li {
+    font-family: "Roboto", sans-serif;
+    margin:0;
+    padding:0;
+}
+
+a {
+    color:#000;
+    text-decoration: none;
+}
+ul,li {
+    list-style: none;
+}
+
+.text-center {
+    text-align: center;
+
+}
+
+.flex {
+    display:flex;
+}
+
+.flex-wrap {
+    flex-wrap: wrap;
+}
+
+.flex-columns {
+    flex-direction: column;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.flex-center {
+    justify-content: center;
+    align-items: center;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
+.align-center {
+    align-items: center;
+}
+
+.select-align {
+    border-left:none !important;
+    
+}
+.element-options {
+    border-right:1px solid #000 !important;
+}
+
+.height-100-vh {
+    height:100vh;
+}
+
+form {
+label {
+    display:block;
+    font-size:18px;
+}
+input {
+    font-size:20px;
+    border:1px solid #000;
+    padding:10px 20px;
+}
+}
+.error {
+    position: absolute;
+    top:40px;
+    color:red;
+}
+.np-button-large {
+    font-size:20px;
+    border:1px solid #000;
+    border-radius:15px;
+    padding:10px 20px;
+}
+
+.small {
+    font-size: 10px;
+}
+
+h2 {
+    font-size: 20px;
+}
+
+button {
+    border:none;
+    background:none;
+    cursor: pointer;
+}
+
+.popup {
+    position: absolute;
+    width:600px;
+    left:calc(50% - 300px);
+    text-align: center;
+    border:1px solid #000;
+    top:50px;
+    border-radius : 20px;
+    background:#FFF;
+    display: none;
+    .close-popup {
+        position: absolute;
+        top:10px;
+        right:10px;
+    }
+   
+    input {
+        display: block;
+        margin:auto;
+    }
+}
+
+label {
+    display: block;
+ }
+
+input {
+        display: block;
+}
+
+.btn-pink {
+    border:2px solid #cb7590;
+    background:#cb7590;
+     color:#FFF;
+}
+.btn-skin {
+    border: 2px solid #fc9280;
+    background:#fc9280;
+    color:#FFF;
+}
+
+.btn-orange {
+    border:2px solid #ffc06c;
+    background:#ffc06c;
+    color:#FFF;
+}
+
+.btn-yellow {
+    background : #f9f871;
+    color:#f29447;
+   
+}
+
+.close {
+    cursor: pointer;
+}
+
+.btn {
+    padding:10px;
+    border-radius:10px;
+}

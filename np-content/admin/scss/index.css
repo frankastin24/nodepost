@@ -1,0 +1,716 @@
+.hidden {
+  display: none;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6, button, p, input, label, div, ul, li {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #000;
+  text-decoration: none;
+}
+
+ul, li {
+  list-style: none;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-wrap {
+  flex-wrap: wrap;
+}
+
+.flex-columns {
+  flex-direction: column;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.flex-center {
+  justify-content: center;
+  align-items: center;
+}
+
+.space-between {
+  justify-content: space-between;
+}
+
+.align-center {
+  align-items: center;
+}
+
+.select-align {
+  border-left: none !important;
+}
+
+.element-options {
+  border-right: 1px solid #000 !important;
+}
+
+.height-100-vh {
+  height: 100vh;
+}
+
+form label {
+  display: block;
+  font-size: 18px;
+}
+form input {
+  font-size: 20px;
+  border: 1px solid #000;
+  padding: 10px 20px;
+}
+
+.error {
+  position: absolute;
+  top: 40px;
+  color: red;
+}
+
+.np-button-large {
+  font-size: 20px;
+  border: 1px solid #000;
+  border-radius: 15px;
+  padding: 10px 20px;
+}
+
+.small {
+  font-size: 10px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.popup {
+  position: absolute;
+  width: 600px;
+  left: calc(50% - 300px);
+  text-align: center;
+  border: 1px solid #000;
+  top: 50px;
+  border-radius: 20px;
+  background: #FFF;
+  display: none;
+}
+.popup .close-popup {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+.popup input {
+  display: block;
+  margin: auto;
+}
+
+label {
+  display: block;
+}
+
+input {
+  display: block;
+}
+
+.btn-pink {
+  border: 2px solid #cb7590;
+  background: #cb7590;
+  color: #FFF;
+}
+
+.btn-skin {
+  border: 2px solid #fc9280;
+  background: #fc9280;
+  color: #FFF;
+}
+
+.btn-orange {
+  border: 2px solid #ffc06c;
+  background: #ffc06c;
+  color: #FFF;
+}
+
+.btn-yellow {
+  background: #f9f871;
+  color: #f29447;
+}
+
+.btn {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#install-select-database {
+  gap: 40px;
+}
+#install-select-database .buttons {
+  gap: 20px;
+}
+
+#install-site-name form {
+  gap: 20px;
+}
+#install-site-name form input {
+  width: 400px;
+}
+
+.buttons {
+  margin: 40px 0px;
+  gap: 20px;
+}
+
+#dash-sidebar {
+  width: 11%;
+  height: 100vh;
+  position: fixed;
+  background: #4f516d;
+  color: #FFF;
+}
+#dash-sidebar header {
+  padding: 20px 30px;
+}
+#dash-sidebar header p {
+  font-size: 18px;
+  margin-top: 10px;
+  letter-spacing: 3px;
+}
+#dash-sidebar .menu-item {
+  padding: 20px;
+  padding-left: 30px;
+  padding-bottom: 0px;
+  cursor: pointer;
+}
+#dash-sidebar .menu-item .title {
+  gap: 20px;
+  align-items: center;
+}
+#dash-sidebar .menu-item .sub-menu {
+  display: none;
+  background: #8586a3;
+  margin-top: 8px;
+}
+#dash-sidebar .menu-item .sub-menu a {
+  padding: 6px;
+  margin-bottom: 6px;
+  display: block;
+  color: #FFF;
+}
+#dash-sidebar .menu-item.open .sub-menu {
+  display: block;
+}
+
+.dash-main {
+  width: calc(89% - 40px);
+  margin-left: 11%;
+  padding: 20px;
+}
+.dash-main input {
+  width: 40%;
+}
+
+.np-element {
+  border: 1px solid #000;
+}
+
+.edit-post-title {
+  font-size: 30px;
+  font-weight: bold;
+  width: calc(81% - 20px) !important;
+  border: 1px solid #000;
+  padding: 10px;
+  margin: 10px 0px;
+}
+
+.featured-image {
+  height: 140px;
+  border: 1px solid #000;
+  width: calc(81% - 20px) !important;
+  margin-bottom: 10px;
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+.featured-image div {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100%;
+}
+.featured-image div h2 {
+  opacity: 0.4;
+}
+.featured-image img {
+  height: 60px;
+  opacity: 0.4;
+}
+
+.btn-blue {
+  background: #3f3f7a;
+  color: #FFF;
+  padding: 10px 20px;
+  border-radius: 6px;
+  margin: 10px 0px;
+  border: none;
+}
+
+.container-icon {
+  width: 60%;
+  height: 10px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.paragraph-icon {
+  font-size: 20px;
+}
+
+#image-browser {
+  position: absolute;
+  top: 100px;
+  left: calc(11% + 20px);
+  width: calc(67% + 5px);
+  height: 400px;
+  background: #FFF;
+  border: 1px solid #000;
+  padding: 20px;
+  z-index: 20;
+}
+#image-browser h1 {
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+#image-browser h2 {
+  font-size: 13px;
+  text-align: center;
+  margin-top: -24px;
+}
+#image-browser .file-browser-container {
+  overflow-y: scroll;
+  height: 300px;
+}
+#image-browser .file-browser-container .file-browser {
+  gap: 10px;
+  padding: 30px 0px;
+  padding-bottom: 20px;
+  flex-wrap: wrap;
+}
+#image-browser .file-browser-container .file-browser .file-browser-item {
+  width: calc(20% - 12px);
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #000;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+}
+#image-browser .file-browser-container .file-browser .file-browser-item input {
+  width: 90%;
+  display: block;
+  margin: 0px auto;
+  padding: 5px;
+  font-size: 11px;
+}
+#image-browser .file-browser-container .file-browser .file-browser-item.selected {
+  border: 2px solid blue;
+}
+
+.editor-aside {
+  width: calc(16% + 20px);
+  top: 0;
+  position: fixed;
+  right: 0px;
+}
+.editor-aside .tabs {
+  overflow: scroll;
+}
+.editor-aside .tabs header button {
+  padding: 10px;
+  width: 50%;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border: 1px solid #6FB7ED;
+}
+.editor-aside .tabs header button:first-child {
+  border-right: 1px solid #CCC;
+}
+.editor-aside .tabs .tab {
+  border: 1px solid #EEE;
+  height: calc(100% - 56px);
+  width: calc(100% + 20px);
+  padding: 20px;
+}
+.editor-aside .tabs .tab button {
+  display: block;
+  width: calc(100% - 60px);
+  margin-bottom: 20px;
+}
+.editor-aside .tabs .tab p {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+.editor-aside .tabs .tab h4 {
+  margin-top: 20px;
+}
+.editor-aside .tabs .tab input {
+  width: calc(50% - 40px);
+  margin-bottom: 10px;
+  display: block;
+}
+
+.all-element-options {
+  position: absolute;
+  margin-top: -28px;
+  margin-left: -2px;
+  border: 1px solid #000;
+  border-left: 2px solid #000;
+  border-bottom: none;
+  background: #FFF;
+}
+.all-element-options input {
+  width: 28px;
+  height: 27px;
+  border: none;
+  margin: 0px 10px;
+}
+.all-element-options .select-level {
+  cursor: pointer;
+}
+.all-element-options .select-level h4 {
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+}
+.all-element-options > div {
+  height: 23px;
+  padding-top: 5px;
+  background: #FFF;
+  width: 40px;
+  text-align: center;
+  border-right: none;
+  cursor: pointer;
+}
+.all-element-options > div ul {
+  position: absolute;
+  padding: 0;
+  margin: 0;
+  margin-top: 2px;
+  margin-left: -1px;
+  background: #FFF;
+  z-index: 100;
+  border: 1px solid #000;
+  border-top: none;
+}
+.all-element-options > div ul li {
+  cursor: pointer;
+  padding: 4px 10px;
+}
+
+.link-input-container {
+  width: 220px;
+  background: #FFF;
+  height: 50px;
+  padding: 20px;
+  padding-top: 40px;
+  height: 30px;
+  position: absolute;
+  z-index: 40;
+}
+.link-input-container .link-placeholder {
+  text-align: left;
+  padding-left: 10px;
+}
+.link-input-container .link-input {
+  height: 20px;
+  border: 1px solid blue;
+  padding: 10px;
+  position: absolute;
+  text-align: left;
+  margin-top: -32px;
+  width: calc(100% - 40px);
+}
+.link-input-container .blinking-cursor {
+  font-weight: bold;
+  color: #333;
+  animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+.bold {
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.italic {
+  font-style: italic;
+  cursor: pointer;
+}
+
+.move-element {
+  width: 80px !important;
+  padding: 0 !important;
+  height: 28px !important;
+  position: absolute;
+  right: 39px;
+  margin-top: -29px;
+  background: #FFF;
+  border: 1px solid #000;
+  border-bottom: none;
+  border-right: none;
+}
+.move-element div {
+  min-width: 40px;
+  height: 24px;
+  padding-top: 4px;
+  height: 24px !important;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drag-container {
+  position: relative;
+}
+.drag-container .drag-handle {
+  position: absolute;
+  width: 40px;
+  height: 26px;
+  border: 1px solid #000;
+  border-right: 2px solid #000;
+  border-bottom: none;
+  border-left: none;
+  right: -2px;
+  top: -29px;
+  background-image: url(/np-content/admin/img/drag.svg);
+  background-size: 60%;
+  background-color: #FFF;
+  background-repeat: no-repeat;
+  text-align: center;
+  padding-top: 2px;
+  cursor: pointer;
+  background-position: center;
+}
+.drag-container .drag-handle img {
+  width: 24px;
+}
+
+.spacer-options {
+  position: absolute;
+  border: 1px solid #000;
+  padding: 10px;
+  margin-top: -56px;
+  background: #FFF;
+  margin-left: -2px;
+  gap: 20px;
+  align-items: center;
+  width: 140px;
+  padding-left: 20px;
+}
+.spacer-options input {
+  padding: 5px;
+  font-size: 15px;
+}
+
+.element-extra-options {
+  position: absolute;
+  display: flex;
+  border: 1px solid #000;
+  height: 28px;
+  border-bottom: none;
+  right: 118px;
+  margin-top: -29px;
+  background: #FFF;
+}
+.element-extra-options div {
+  padding-top: 4px;
+  height: 100%;
+  width: 40px;
+  text-align: center;
+  cursor: pointer;
+}
+
+.drag-element {
+  height: 20px;
+  position: relative;
+}
+.drag-element .drop-bar {
+  height: 20px;
+  background: #FFF;
+  text-align: center;
+}
+.drag-element .drop-bar img {
+  height: 18px;
+  width: auto;
+  position: absolute;
+  margin-top: 1px;
+  z-index: 10;
+}
+.drag-element.drag-over .drop-bar {
+  background: #000;
+}
+
+.np-paragraph {
+  padding: 10px;
+  font-size: 18px;
+}
+
+.np-container {
+  width: calc(100% - 42px);
+  padding: 20px;
+}
+
+[contenteditable]:focus {
+  outline: none; /* Or set to whatever you want */
+  border: none;
+}
+
+.current-container {
+  border: 2px solid green !important;
+}
+
+.np-columns {
+  padding: 10px;
+  gap: 10px;
+}
+
+.np-heading {
+  padding: 10px;
+}
+
+.stage {
+  width: calc(78.5% - 20px) !important;
+  min-height: 400px;
+  padding: 20px;
+  border: 1px solid #000;
+}
+
+.image {
+  max-width: 100%;
+}
+
+.current-element {
+  border: 2px blue solid;
+}
+
+.link {
+  text-decoration: underline;
+  color: blue;
+}
+
+.np-spacer .flex-center {
+  height: 100%;
+}
+
+.button-icon {
+  width: 50%;
+  padding-top: 2px;
+  height: 15px;
+  border: 1px solid #000;
+  font-weight: bold;
+  border-radius: 10px;
+  margin: auto;
+  margin-bottom: 2px;
+}
+
+.elements-panel {
+  background: #fc9280;
+  height: 230px;
+  padding: 10px 20px;
+  position: fixed;
+  bottom: 0px;
+  width: 22%;
+}
+.elements-panel .close-elements-panel {
+  background-image: url("/np-content/admin/img/slide-down.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -40px;
+  height: 40px;
+  width: 40px;
+  background-color: #fc9280;
+  right: 0;
+  cursor: pointer;
+}
+.elements-panel.closed {
+  bottom: -250px;
+}
+.elements-panel.closed .close-elements-panel {
+  background-image: url("/np-content/admin/img/slide-up.svg");
+}
+.elements-panel .elements {
+  width: 98%;
+  margin: auto;
+}
+.elements-panel .elements h4 {
+  font-size: 14px;
+  text-align: center;
+  margin-bottom: 10px;
+  color: #FFF;
+}
+.elements-panel .elements .column-icon {
+  width: 60%;
+  margin: auto;
+  justify-content: space-between;
+  margin-bottom: 5px;
+}
+.elements-panel .elements .column-icon div {
+  width: calc(48% - 8px);
+  height: 10px;
+  border: 2px solid #000;
+  border-radius: 2px;
+}
+.elements-panel .elements .flex {
+  gap: 10px;
+  flex-wrap: wrap;
+  margin-bottom: 10px;
+}
+.elements-panel .elements .flex button {
+  width: calc(33% - 10px);
+  display: block;
+  min-width: calc(33% - 10px);
+  border: 1px solid #FFF;
+  padding: 5px;
+  border-radius: 4px;
+  font-size: 12px;
+  background: #f8c6bd;
+}
+.elements-panel .elements .flex button h4 {
+  margin-bottom: 2px;
+  color: #000;
+}/*# sourceMappingURL=index.css.map */

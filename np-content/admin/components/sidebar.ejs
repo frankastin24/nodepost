@@ -1,0 +1,37 @@
+<aside id="dash-sidebar">
+   <header class="">
+   <a href="/<%= adminURL %>"><img width="100" src="/np-content/admin/img/logo.svg"/></a>
+   <p >NodePost</p>
+   </header>
+   <ul>
+
+      <% for (menuItem of global.admin_menu ) { %>
+      
+      <li class="menu-item">
+        <div class="title flex">
+
+        <% if(menuItem.dashIcon) { %>
+            <img width="18" src="/np-content/admin/img/<%= menuItem.dashIcon %>.svg"/>
+        <% } %>
+
+        <h4><%= menuItem.pageName %></h4>
+        
+        </div>
+
+        <ul class="sub-menu">
+
+              <% for (subMenuItem of menuItem.subMenu) { %>
+
+                <li>
+                    <a href="/<%= adminURL %>/<%= subMenuItem.pageURL %>"><%= subMenuItem.pageName %></a>
+                </li>
+
+             <% } %>
+        
+            </ul>
+      </li>
+
+      <% } %>
+
+   </ul> 
+</aside>

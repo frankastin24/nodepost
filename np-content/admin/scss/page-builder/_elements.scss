@@ -1,0 +1,59 @@
+.np-paragraph {
+    padding: 10px;
+    font-size: 18px;
+}
+.np-container {
+    width: calc(100% - 42px);
+    padding: 20px;
+}
+[contenteditable]:focus {
+  outline: none; /* Or set to whatever you want */
+  border: none;
+}
+.current-container {
+    border:2px solid green !important;
+}
+.np-columns {
+    padding: 10px;
+    gap: 10px;
+}
+.np-heading {
+    padding: 10px;
+}
+.stage {
+    width: calc(78.5% - 20px) !important;
+    min-height: 400px;
+    padding:20px;
+    border:1px solid #000;
+}
+
+.image {
+    max-width: 100%;
+}
+
+
+.current-element {
+    border: 2px blue solid;
+}
+.link {
+    text-decoration: underline;
+    color:blue;
+}
+
+.np-spacer {
+    .flex-center {
+       height:100%;
+    }
+}
+
+.button-icon {
+   width: 50%;
+    padding-top: 2px;
+    height: 15px;
+    border: 1px solid #000;
+    font-weight: bold;
+    border-radius: 10px;
+    margin: auto;
+    margin-bottom: 2px;
+
+}
