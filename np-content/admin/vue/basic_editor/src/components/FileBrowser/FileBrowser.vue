@@ -127,9 +127,17 @@ const addFiles = () => {
             blur: '0%'
           };
 
-          store.currentContainer.push(imageObj);
-          store.currentElement = imageObj;
-          file.selected = false;
+          if (store.imageMode == 'gallery') {
+
+            store.currentGallery.images.push(image.src)
+
+          } else {
+            store.currentContainer.push(imageObj);
+            store.currentElement = imageObj;
+            file.selected = false;
+          }
+
+
         };
 
 

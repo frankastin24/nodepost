@@ -195,8 +195,8 @@ const addVideo = () => {
 const addGallery = () => {
     const gallery = {
         type: 'gallery',
-        mediaElements: [],
-        elementsPerRow: 3,
+        images: [],
+        imagesPerRow: 3,
         gap: 10,
         popup: true,
         classes: ' np-gallery',

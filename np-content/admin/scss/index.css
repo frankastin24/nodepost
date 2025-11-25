@@ -7,7 +7,7 @@ body, html {
   padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6, button, p, input, label, div, ul, li {
+h1, h2, h3, h4, h5, h6, button, p, input, label, div, ul, li, button {
   font-family: "Roboto", sans-serif;
   margin: 0;
   padding: 0;
@@ -154,6 +154,10 @@ input {
 .btn-yellow {
   background: #f9f871;
   color: #f29447;
+}
+
+.close {
+  cursor: pointer;
 }
 
 .btn {
@@ -621,6 +625,40 @@ input {
 
 .image {
   max-width: 100%;
+}
+
+.np-gallery {
+  min-height: 200px;
+}
+.np-gallery > button {
+  display: block;
+  width: 200px;
+  margin: auto;
+  margin-top: 20px;
+  color: #000;
+  font-weight: bold;
+  opacity: 0.5;
+  font-size: 16px;
+  text-transform: uppercase;
+}
+.np-gallery > button img {
+  display: block;
+  margin: auto;
+}
+.np-gallery > button p {
+  margin-top: 5px;
+}
+.np-gallery .np-gallery-images {
+  padding: 40px;
+}
+.np-gallery .np-gallery-images .np-gallery-image {
+  width: 100px;
+  height: 100px;
+  background-size: cover;
+}
+.np-gallery .np-gallery-images .np-gallery-image button {
+  padding: 5px;
+  background: #FFF;
 }
 
 .current-element {

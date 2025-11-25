@@ -16,11 +16,8 @@
 
     <Video @click.stop="selectElement(element,container)" :element="element" v-if="element.type == 'video'"/>
 
-    <div @click.stop="selectElement(element,container)" v-if="element.type == gallery">
-        <div :style="galleryElementStyle(img)" v-for="img in element.mediaElements" class="gallery-element">
+    <Gallery @click.stop="selectElement(element,container)" :element="element" v-if="element.type == 'gallery'"/>
 
-        </div>
-    </div>
 
 </template>
 
@@ -33,6 +30,7 @@ import Heading from './Heading/Heading.vue';
 import Paragraph from './Paragraph/Paragraph.vue';
 import Image from './Image/Image.vue';
 import Video from './Video/Video.vue';
+import Gallery from './Gallery/Gallery.vue';
 import Container from './Container.vue';
 import Spacer from './Spacer.vue';
 

@@ -31,6 +31,40 @@
     max-width: 100%;
 }
 
+.np-gallery {
+    min-height:200px;
+    > button {
+        display: block;
+        width:200px;
+        img {
+            display: block;
+            margin:auto;
+        }
+        margin:auto;
+        margin-top:20px;
+        color:#000;
+        font-weight: bold;
+         opacity: 0.5;
+         font-size: 16px;
+         text-transform: uppercase;
+         p {
+            margin-top:5px;
+         }
+    }
+    .np-gallery-images {
+        padding:40px;
+        .np-gallery-image {
+            width:100px;
+            height:100px;
+            background-size:cover;
+            button {
+                padding:5px;
+                background:#FFF;
+            }
+        }
+    }
+}
+
 
 .current-element {
     border: 2px blue solid;

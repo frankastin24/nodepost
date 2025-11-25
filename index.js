@@ -7,18 +7,16 @@ const enqueue_admin_script = require('./np-includes/enqueue_admin_script');
 //Load environmentals
 
 global.__app_path = __dirname;
+
 require('./fuse/enviromentals');
 require('./fuse/db')
-
-
 
 //Load models
 
 add_action('db_initalized', () => {
+
    scanAndRequire(global.__app_path+'/models');
-   
    do_action('enqueue_scripts');
-   
    require('./routes')
    require('./fuse/server');
 
