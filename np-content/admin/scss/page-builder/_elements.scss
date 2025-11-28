@@ -65,6 +65,17 @@
     }
 }
 
+.np-button {
+
+    .flex > p {
+        display: inline-block;
+        padding:20px;
+        border-radius:10px;
+        min-width:100px;
+        margin:10px 0px;
+    }
+}
+
 
 .current-element {
     border: 2px blue solid;

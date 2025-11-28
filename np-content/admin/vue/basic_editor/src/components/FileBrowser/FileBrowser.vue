@@ -29,7 +29,7 @@
 
       </div>
     </div>
-    <button class="btn btn-pink add-selected-images" @click="addFiles">Add Selected Images</button>
+    <button class="btn btn-pink add-selected-images" @click="addFiles">Add Selected {{upperCaseFileMode()}}s</button>
   </div>
 </template>
 

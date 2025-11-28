@@ -18,6 +18,9 @@ add_action('db_initalized', () => {
    scanAndRequire(global.__app_path+'/models');
    do_action('enqueue_scripts');
    require('./routes')
+   const NPAdmin = require('./controllers/NPAdmin');
+   NPAdmin.registerInstallAJAX();
+   NPAdmin.ajax();
    require('./fuse/server');
 
 })

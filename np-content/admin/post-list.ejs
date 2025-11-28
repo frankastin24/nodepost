@@ -1,0 +1,49 @@
+<%- get_template_part('/np-content/admin/header',viewContext) %>
+
+<section class="flex">
+
+    <%- get_template_part('/np-content/admin/components/sidebar',viewContext) %>
+    <script>
+        const adminURL = "<%= adminURL %>";
+        
+    </script>
+        <div class="dash-main">
+
+            <h1>Custom Post Types</h1>
+            
+            <table width="100%">
+                <tr>
+                    <th>Title</th>
+                    <th>Slug</th>
+                    
+                    <th></th>
+                     <th></th>
+                </tr>
+               
+                <% for (post of data.posts) { %>
+                    <tr data-id="<%= post.id %>">
+                        <td><%= post.title %></td>
+                        <td><%= post.slug %></td>
+                        <td><a href="/np-admin/edit/post_id=<%= post.id %>">Edit</a></td>
+                        <td><button class="delete-cpt btn btn-red">Delete</button></td>
+                    </tr>
+                <% } %>
+            </table>
+
+            <div class="pagination">
+                <ul class="pages flex">
+                    
+                    <li><a href="/<%= adminURL %>/cpt/view-all">1</a></li>
+                    
+                    <% for(let i = 2; i < data.numPages; i ++) { %>
+                        <li><a href="/<%= adminURL %>/cpt/view-all/<%= i %>"><%= i %></a></li>
+                    <% } %>    
+                
+                </ul>
+            </div>
+
+        </div>
+
+</section>
+
+<%- get_template_part('/np-content/admin/footer',viewContext) %>

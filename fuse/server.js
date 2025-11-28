@@ -26,6 +26,7 @@ app.all('/{*any}', (req, res) => {
     req,
     res,
   }
+  
   router.execute(context);
 });
 

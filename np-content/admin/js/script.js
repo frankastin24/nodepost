@@ -74,7 +74,7 @@ $(() => {
             return $('input[name="cpt_title"]').siblings('p').show();
         }
 
-        $.post('/api/np-admin/add-cpt', {
+        $.post('/np-admin/np-ajax/?action=add_cpt', {
             title,
             slug: $('input[name="cpt_slug"]').val(),
             basic_editor: $('input[name="basic"]').prop('checked'),

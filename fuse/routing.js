@@ -44,7 +44,6 @@ class Router {
         
         if(reqPath.length == 0 ) reqPath = "/";
 
-        
 
         let method = context.req.method.toLowerCase();
         // Support _method override in body (for HTML forms etc)
@@ -90,6 +89,7 @@ class Router {
             let result;
             
             if (typeof matched.callable === 'function') {
+               
                 result = await matched.callable(request,context);
             } else if (Controller.prototype && typeof Controller.prototype[methodName] === 'function') {
                 const instance = new Controller();
@@ -107,6 +107,7 @@ class Router {
             //     }
             // }
         } catch (err) {
+            console.log(err)
             return context.res.status(500).json({ error: err.message || 'Controller execution failed' });
         }
     }

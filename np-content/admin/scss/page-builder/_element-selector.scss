@@ -1,6 +1,6 @@
 .elements-panel {
-    background: #fc9280;
-    height: 230px;
+    background: var(--dark);
+    height: 235px;
     padding: 10px 20px;
     position: fixed;
     bottom: 0px;
@@ -14,7 +14,7 @@
         top:-40px;
         height:40px;
         width:40px;
-        background-color: #fc9280;
+        background-color: var(--dark);
         right: 0;
         cursor: pointer;
         
@@ -63,11 +63,10 @@
                 width: calc(33% - 10px);
                 display: block;
                 min-width: calc(33% - 10px);
-                border: 1px solid #FFF;
                 padding: 5px;
                 border-radius: 4px;
                 font-size: 12px;
-                background:#f8c6bd;
+                background:var(--lightest);
                 h4 {
                     margin-bottom: 2px;
                     color:#000;

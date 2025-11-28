@@ -42,6 +42,10 @@ ul, li {
   justify-content: center;
 }
 
+.gap-10 {
+  gap: 10px;
+}
+
 .flex-center {
   justify-content: center;
   align-items: center;
@@ -139,21 +143,9 @@ input {
   color: #FFF;
 }
 
-.btn-skin {
-  border: 2px solid #fc9280;
-  background: #fc9280;
+.btn-primary {
+  background: var(--medium);
   color: #FFF;
-}
-
-.btn-orange {
-  border: 2px solid #ffc06c;
-  background: #ffc06c;
-  color: #FFF;
-}
-
-.btn-yellow {
-  background: #f9f871;
-  color: #f29447;
 }
 
 .close {
@@ -162,33 +154,103 @@ input {
 
 .btn {
   padding: 10px;
+  border-radius: 5px;
+}
+
+:root {
+  --darkest: #0C0910;
+  --dark:#453750;
+  --medium:#73648A;
+  --light:#9882AC;
+  --lightest:#A393BF;
+  --lighter:#f4f2f8;
+}
+
+.install {
+  background-image: url("../img/logo-blue.svg");
+  background-size: cover;
+  background-position: top center;
+  height: 100vh;
+}
+
+.version {
+  position: absolute;
+  color: #FFF;
+  bottom: 10px;
+  left: 10px;
+}
+.version a {
+  text-decoration: underline;
+  color: var(--lightest);
+}
+
+.np-install-section {
+  width: 40%;
+  margin: auto;
+  padding-top: 100px;
+  margin-top: 0px;
+  text-align: center;
+}
+.np-install-section h1, .np-install-section h2, .np-install-section h3, .np-install-section h4, .np-install-section p {
+  margin-top: 20px;
+  color: var(--lighter);
+}
+.np-install-section h1 {
+  font-size: 40px;
+}
+.np-install-section h2 {
+  font-size: 30px;
+}
+.np-install-section p {
+  font-size: 24px;
+}
+.np-install-section h3 {
+  margin-top: 40px;
+  font-size: 18px;
+  height: 30px;
+}
+.np-install-section a {
+  color: var(--dark);
+  text-decoration: underline;
+}
+.np-install-section input {
+  width: 100%;
+  border: 2px solid var(--medium);
+  padding: 10px;
+  display: block;
+  margin-top: 20px;
   border-radius: 10px;
+  color: var(--medium);
+  font-size: 24px;
 }
-
-#install-select-database {
-  gap: 40px;
+.np-install-section .btn-primary {
+  font-size: 24px;
+  padding: 10px 20px;
 }
-#install-select-database .buttons {
-  gap: 20px;
+.np-install-section select {
+  display: block;
+  padding: 10px;
+  border: 2px solid var(--dark);
+  width: 100%;
+  color: var(--dark);
+  margin: 20px 0px;
+  font-size: 24px;
 }
-
-#install-site-name form {
-  gap: 20px;
+.np-install-section .btn-active {
+  border: 2px solid #FFF;
 }
-#install-site-name form input {
-  width: 400px;
+.np-install-section .nav {
+  margin-top: 20px;
 }
-
-.buttons {
-  margin: 40px 0px;
-  gap: 20px;
+.np-install-section .next {
+  margin-left: auto;
 }
 
 #dash-sidebar {
   width: 11%;
   height: 100vh;
   position: fixed;
-  background: #4f516d;
+  background: var(--dark);
   color: #FFF;
 }
 #dash-sidebar header {
@@ -357,35 +419,63 @@ input {
 .editor-aside .tabs header button {
   padding: 10px;
   width: 50%;
-  border-top-left-radius: 5px;
-  border-top-right-radius: 5px;
-  border: 1px solid #6FB7ED;
+  padding-bottom: 12px;
+  border-bottom: 2px solid var(--medium);
+  color: var(--medium);
+  font-weight: bold;
+  text-transform: uppercase;
+}
+.editor-aside .tabs header button.active {
+  padding-bottom: 10px;
+  border-bottom: 4px solid var(--medium);
 }
 .editor-aside .tabs header button:first-child {
-  border-right: 1px solid #CCC;
+  border-right: 2px solid var(--medium);
+  border-left: 2px solid var(--medium);
 }
 .editor-aside .tabs .tab {
-  border: 1px solid #EEE;
-  height: calc(100% - 56px);
-  width: calc(100% + 20px);
+  border: 1px solid var(--lightest);
+  border-top: none;
   padding: 20px;
+  height: calc(100vh - 37px);
+}
+.editor-aside .tabs .tab .element-options-aside h1 {
+  font-size: 20px;
+  margin-bottom: 10px;
+  color: var(--dark);
+}
+.editor-aside .tabs .tab p {
+  font-size: 13px;
+  line-height: 20px;
+  color: var(--dark);
 }
 .editor-aside .tabs .tab button {
   display: block;
-  width: calc(100% - 60px);
+  width: calc(100% - 120px);
   margin-bottom: 20px;
 }
 .editor-aside .tabs .tab p {
-  font-size: 14px;
   margin-bottom: 10px;
 }
 .editor-aside .tabs .tab h4 {
   margin-top: 20px;
+  margin-bottom: 20px;
 }
 .editor-aside .tabs .tab input {
   width: calc(50% - 40px);
   margin-bottom: 10px;
   display: block;
+}
+.editor-aside .tabs .tab .option span {
+  width: 30%;
+  display: block;
+}
+.editor-aside .tabs .tab .option input {
+  width: 70%;
+  display: block;
+  margin-top: 7px;
+  padding: 6px;
+  border-radius: 5px;
 }
 
 .all-element-options {
@@ -661,6 +751,14 @@ input {
   background: #FFF;
 }
 
+.np-button .flex > p {
+  display: inline-block;
+  padding: 20px;
+  border-radius: 10px;
+  min-width: 100px;
+  margin: 10px 0px;
+}
+
 .current-element {
   border: 2px blue solid;
 }
@@ -686,8 +784,8 @@ input {
 }
 
 .elements-panel {
-  background: #fc9280;
-  height: 230px;
+  background: var(--dark);
+  height: 235px;
   padding: 10px 20px;
   position: fixed;
   bottom: 0px;
@@ -701,7 +799,7 @@ input {
   top: -40px;
   height: 40px;
   width: 40px;
-  background-color: #fc9280;
+  background-color: var(--dark);
   right: 0;
   cursor: pointer;
 }
@@ -742,13 +840,47 @@ input {
   width: calc(33% - 10px);
   display: block;
   min-width: calc(33% - 10px);
-  border: 1px solid #FFF;
   padding: 5px;
   border-radius: 4px;
   font-size: 12px;
-  background: #f8c6bd;
+  background: var(--lightest);
 }
 .elements-panel .elements .flex button h4 {
   margin-bottom: 2px;
   color: #000;
+}
+
+#login {
+  width: 600px;
+  margin: auto;
+  background: var(--lightest);
+  text-align: center;
+  padding: 60px;
+  border-radius: 20px;
+  margin-top: 100px;
+  color: #FFF;
+}
+#login h1 {
+  margin-top: 20px;
+}
+#login input {
+  width: 60%;
+  padding: 10px;
+  border: 1px solid var(--medium);
+  border-radius: 5px;
+  background: #FFF;
+  display: block;
+  margin: auto;
+  color: var(--medium);
+  margin-top: 10px;
+}
+#login p {
+  margin: 20px 0px;
+  color: rgb(254, 207, 207);
+}
+#login button {
+  background: var(--dark);
+  padding: 10px 20px;
+  color: #FFF;
+  border-radius: 5px;
 }/*# sourceMappingURL=index.css.map */

@@ -1,20 +1,93 @@
-#install-select-database {
-    gap:40px;
-    .buttons {
-        gap:20px;
-    }
+
+.install {
+    background-image:url('../img/logo-blue.svg');
+    background-size:cover;
+    background-position: top center;
+    height:100vh;
+
+}
+.version {
+    position: absolute;
+    color:#FFF;
+   a {
+    text-decoration: underline;
+    color:var(--lightest);
+   }
+    bottom:10px;
+    left:10px;
 }
 
-#install-site-name {
-    form {
-        gap:20px;
-        input {
-            width:400px;
-        }
-    }
-}
+.np-install-section {
+    width:40%;
+    margin:auto;
+    padding-top:100px;
+    margin-top:0px;
+    text-align: center;
 
-.buttons {
-    margin:40px 0px;
-    gap:20px;
+    h1,h2,h3,h4,p {
+        margin-top:20px;
+        color:var(--lighter);
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size:30px;
+       
+    }
+
+    p {
+        font-size:24px;
+    }
+
+    h3 {
+        margin-top:40px;
+        font-size: 18px;
+        height:30px;
+    }
+
+    a {
+        color:var(--dark);
+        text-decoration: underline;
+    }
+
+    input {
+        width:100%;
+        border:2px solid var(--medium);
+        padding:10px;
+        display:block;
+        margin-top:20px;
+        border-radius:10px;
+        color:var(--medium);
+        font-size:24px;
+
+    }
+
+    .btn-primary {
+        font-size:24px;
+        padding:10px 20px;
+    }
+
+    select {
+        display:block;
+        padding:10px;
+        border: 2px solid var(--dark);
+        width:100%;
+        color:var(--dark);
+        margin: 20px 0px;
+        font-size:24px;
+    }
+
+    .btn-active {
+        border:2px solid #FFF;
+    }
+    .nav {
+        margin-top:20px;
+    }
+    .next {
+         margin-left: auto;
+    }
+   
 }

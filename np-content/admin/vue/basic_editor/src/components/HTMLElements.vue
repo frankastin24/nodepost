@@ -2,8 +2,10 @@
     
     <Container :element="element" @click="selectElement(element,container)"  v-if="element.type == 'container'" />
     
-    <div @click.stop="selectElement(element,container)" v-if="element.type == 'columns'" :style="elementStyles(element)" :class="element.classes">
-        <Column :column="column" v-for="(column, index) in element.columns"/>
+    <div @click.stop="selectElement(element,container)" v-if="element.type == 'columns'" style="position:relative;" :class="element.classes">
+        <div :style="{width:'calc(100% - 74px)',display:'flex',gap: element.gap + 'px'}">
+        <Column :column="column" :container="element" v-for="(column, index) in element.columns"/>
+        </div>
     </div>
     
     <Heading @click.stop="selectElement(element,container)" :element="element" v-if="element.type == 'heading'"/>
@@ -18,6 +20,8 @@
 
     <Gallery @click.stop="selectElement(element,container)" :element="element" v-if="element.type == 'gallery'"/>
 
+    <Button @click.stop="selectElement(element,container)" :element="element" v-if="element.type == 'button'"/>
+    
 
 </template>
 
@@ -28,6 +32,7 @@ defineProps(['element','container']);
 import Column from './Column.vue';
 import Heading from './Heading/Heading.vue';
 import Paragraph from './Paragraph/Paragraph.vue';
+import Button from './Button/Button.vue';
 import Image from './Image/Image.vue';
 import Video from './Video/Video.vue';
 import Gallery from './Gallery/Gallery.vue';
@@ -47,26 +52,5 @@ const selectElement = (currentElement,container) => {
     }
 }
 
-const elementStyles = (element) => {
-
-    if(element.type == 'container') {
-        return {
-            width: element.width,
-            minHeight: '100px',
-        }
-    }
-    if(element.type == 'heading') {
-        let fontStyle = '';
-        if(element.bold) {
-            fontStyle = 'bold';
-        }
-
-        return {
-           fontStyle,
-           textAlign: element.align,
-           color: element.color
-        }
-    }
-}
 
 </script>

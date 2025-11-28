@@ -40,6 +40,10 @@ ul,li {
     justify-content: center;
 }
 
+.gap-10 {
+    gap:10px;
+}
+
 .flex-center {
     justify-content: center;
     align-items: center;
@@ -137,22 +141,9 @@ input {
     background:#cb7590;
      color:#FFF;
 }
-.btn-skin {
-    border: 2px solid #fc9280;
-    background:#fc9280;
+.btn-primary {
+    background:var(--medium);
     color:#FFF;
-}
-
-.btn-orange {
-    border:2px solid #ffc06c;
-    background:#ffc06c;
-    color:#FFF;
-}
-
-.btn-yellow {
-    background : #f9f871;
-    color:#f29447;
-   
 }
 
 .close {
@@ -161,5 +152,15 @@ input {
 
 .btn {
     padding:10px;
-    border-radius:10px;
+    border-radius:5px;
+
+}
+
+:root {
+  --darkest: #0C0910;
+  --dark:#453750;
+  --medium:#73648A;
+  --light:#9882AC;
+  --lightest:#A393BF;
+  --lighter:#f4f2f8;
 }

@@ -1,6 +1,6 @@
 <template>
     
-    <div @click.stop="selectElement(column)"  :style="columnStyles(column)" :class="[column.classes,(column.elements == store.currentContainer ? 'current-container' : '')]">
+    <div @click.stop="selectElement(column)"  :style="columnStyles(column,container)" :class="[column.classes,(column.elements == store.currentContainer ? 'current-container' : '')]">
         
         <DragArea index="0" :containerIndex="column.index" />
 
@@ -18,7 +18,7 @@
 </template>
 
 <script setup>
-defineProps(['column']);
+defineProps(['column','container']);
 
 import {useAppStore} from '../store/store';
 import HTMLElements from './HTMLElements.vue';
@@ -26,11 +26,13 @@ import DragArea from './DragArea.vue';
 import DragContainer from './DragContainer.vue';
 const store = useAppStore();
 
-const columnStyles = (column) => {
+const columnStyles = (column,container) => {
+   const gap = container.gap * (container.columns.length - 1);
     return {
-        width : column.width,
-        minWidth : `calc(${column.width} - 47px)`,
-        minHeight: '100px'
+         width: `calc(${column.width} - ${gap}px)`,       // Subtract gap once per column.
+        minWidth: `calc(${column.width} - ${gap}px)`,
+        minHeight: '100px',
+              
     }
 }
 

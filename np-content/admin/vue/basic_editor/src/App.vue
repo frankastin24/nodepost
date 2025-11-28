@@ -26,7 +26,7 @@
 
         <ElementSelector />
 
-        <FileBrowser />
+        
 
     </div>
 </template>
@@ -48,9 +48,19 @@ const selectRootContainer = () => {
     store.currentContainer = store.rootElement;
 }
 
-onMounted(() => {
+onMounted(async () => {
     store.currentContainer = store.rootElement;
     store.containers.push(store.currentContainer);
+
+    if( window.location.href.includes('post_id') ) {
+        const splitUrl =  window.location.href.split('post_id=');
+        store.postID = parseInt(splitUrl[1]);
+    } else {
+       const splitUrl = window.location.href.split('/')
+       const response = await fetch('/np-admin/np-ajax/?action=create_post&post_type='+splitUrl[4] );
+       store.postID = await response.text();
+       console.log(store.postID);
+    }
 })
 
 document.addEventListener("paste", function (e) {

@@ -37,7 +37,7 @@ const uploadFile = async (event,currentFolder,uploadsFilePath,updateFolderConten
 
   const formData = new FormData()
   
-  formData.append('filename', file.name)
+  formData.append('filename', file.name.replaceAll(' ','-'))
 
   formData.append('path',uploadsFilePath + currentFolder )
 

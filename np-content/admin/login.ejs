@@ -1,11 +1,15 @@
-<form>
-    
-    <h1>Login</h1>
+<%- get_template_part('/np-content/admin/header',viewContext) %>
+
+<form id="login" method="post">
+    <img width="240" src="/np-content/admin/img/logo.svg"/>
+    <h1>NodePost Login</h1>
 
     <input name="username" placeholder="Username" />
 
     <input name="password" type="password" placeholder="Password"/>
-    
+    <p class="message"><%= data.message %></p>
     <button type="submit">Login</button>
 
 </form>
+
+<%- get_template_part('/np-content/admin/footer',viewContext) %>

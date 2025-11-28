@@ -1,0 +1,9 @@
+{
+    "Thanks for choosing NodePost!" : "Thankyou for choosing NodePost!",
+    "Let's get started." : "Let's get started.",
+    "Language not listed?" : "Language not listed? Click here to request your language.",
+    "Please Select Your Database" : "Please Select Your Database",
+    "If you have a smaller low traffic website use SQLite" : "If you have a smaller low traffic website use SQLite. If you have a large website or high traffic use mysql.",
+    "Next" : "Next",
+    "Previous" : "Previous"
+}

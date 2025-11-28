@@ -69,6 +69,49 @@ import {ref} from 'vue';
 const open = ref(true);
 const store = useAppStore();
 
+const addHeading = () => {
+    const heading = {
+        type: 'heading',
+        text: 'Heading',
+        level: 'h1',
+        classes: ' np-heading',
+        id: '',
+        align: 'left',
+        color: '#000',
+        bold: true,
+        showLevels: false,
+        showAligns: false,
+        showElementOptions: false,
+        content: '',
+        extraClasses: '',
+        padding : '0px',
+        width: '100%',
+        height: 'auto'
+    }
+    store.currentContainer.push(heading);
+    store.currentElement = heading;
+     store.activeTab = 0;
+}
+
+const addParagraph = () => {
+    const paragraph = {
+        type: 'paragraph',
+        classes: ' np-paragraph',
+        align: 'left',
+        color: '#000',
+        showAligns: false,
+        showElementOptions: false,
+        content: '',
+        extraClasses: '',
+        id: '',
+        padding : '0px',
+        width: '100%',
+        height: 'auto'
+    }
+    store.currentContainer.push(paragraph);
+    store.currentElement = paragraph;
+    store.activeTab = 0;
+}
 const addSpacer = () => {
     const spacer = {
         type: 'spacer',
@@ -76,6 +119,26 @@ const addSpacer = () => {
     }
     store.currentContainer.push(spacer);
     store.currentElement = spacer;
+     store.activeTab = 0;
+}
+
+const addButton = () => {
+
+    const button = {
+        type : 'button',
+        url : '',
+        text:'',
+        backgroundColor:'#CCC',
+        textColor: '#000',
+        borderColor: '#000',
+        bold:false,
+        borderWidth : 1,
+    }
+
+    store.currentContainer.push(button);
+    store.currentElement = button;
+     store.activeTab = 0;
+
 }
 
 const addContainer = () => {
@@ -99,6 +162,7 @@ const addContainer = () => {
     const index = store.containers.length;
     container.index = index;
     store.containers.push(container.elements)
+     store.activeTab = 0;
 
 }
 
@@ -106,7 +170,7 @@ const addColumns = () => {
     const columns = {
         type: 'columns',
         numberOfColums: 2,
-        gap: '0px',
+        gap: 10,
         classes: ' np-columns flex',
         extraClasses: '',
         id: '',
@@ -141,55 +205,26 @@ const addColumns = () => {
 
     columns.columns[1].index = store.containers.length;
     store.containers.push(columns.columns[1].elements);
+     store.activeTab = 0;
 
 }
 
-const addHeading = () => {
-    const heading = {
-        type: 'heading',
-        text: 'Heading',
-        level: 'h1',
-        classes: ' np-heading',
-        id: '',
-        align: 'left',
-        color: '#000',
-        bold: true,
-        showLevels: false,
-        showAligns: false,
-        showElementOptions: false,
-        content: '',
-        extraClasses: '',
-    }
-    store.currentContainer.push(heading);
-    store.currentElement = heading;
-}
 
-const addParagraph = () => {
-    const paragraph = {
-        type: 'paragraph',
-        classes: ' np-paragraph',
-        align: 'left',
-        color: '#000',
-        showAligns: false,
-        showElementOptions: false,
-        content: '',
-        extraClasses: '',
-        id: '',
-    }
-    store.currentContainer.push(paragraph);
-    store.currentElement = paragraph;
-}
+
+
 
 const addImage = () => {
     store.imageMode = 'container';
     store.fileBrowserMode = 'images';
     store.displayFileBrowser = true;
+     store.activeTab = 0;
 }
 
 const addVideo = () => {
     store.imageMode = 'container';
     store.fileBrowserMode = 'videos';
     store.displayFileBrowser = true;
+     store.activeTab = 0;
 }
 
 const addGallery = () => {
@@ -205,6 +240,7 @@ const addGallery = () => {
     }
 
     store.currentContainer.push(gallery);
+    store.activeTab = 0;
 }
 
 </script>
