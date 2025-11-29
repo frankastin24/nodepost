@@ -26,6 +26,8 @@ class NPAdmin {
     } 
 
     static registerInstallAJAX() {
+
+        const { update_option } = require('../np-includes/options')
         
         addNoPrivAjax('get_current_lang', (context) => {
             if(global.__env.INSTALL_COMPLETE == 'true') {
@@ -49,7 +51,7 @@ class NPAdmin {
             context.res.send('true');
         })
 
-         addNoPrivAjax('set_install_step', (context,request) => {
+         addNoPrivAjax('set_current_step', (context,request) => {
             if(global.__env.INSTALL_COMPLETE == 'true') {
                 return context.send('Install Complete');
             }
@@ -63,6 +65,34 @@ class NPAdmin {
             }
             updateEnviromental('LANGUAGE', request.lang);
             context.res.send('true');
+        })
+
+        addNoPrivAjax('set_database_creds', (context,request) => {
+        
+            if(global.__env.INSTALL_COMPLETE == 'true') {
+                return context.send('Install Complete');
+            }
+        
+            updateEnviromental('DB_HOST', request.db_host);
+            updateEnviromental('DB_USER', request.db_user);
+            updateEnviromental('DB_NAME', request.db_name);
+            updateEnviromental('DB_PASSWORD', request.db_password);
+        
+            context.res.send('true');
+        
+        })
+
+        addNoPrivAjax('set_site_details', (context,request) => {
+        
+            if(global.__env.INSTALL_COMPLETE == 'true') {
+                return context.send('Install Complete');
+            }
+        
+            update_option('site_title', request.site_title);
+            update_option('site_tag_line', request.site_tag_line);
+        
+            context.res.send('true');
+        
         })
 
        
@@ -209,33 +239,9 @@ class NPAdmin {
         await view(admin_views_path + 'home', {}, context);
     }
 
-    static saveSiteTitle(request, context) {
-
-        const { update_option } = require('../np-includes/options')
-
-        update_option('site_title', request.site_title);
-        update_option('tag_line', request.tag_line);
-        context.res.send('{"success" : true}');
-
-    }
-
-    static saveAdminCreds(request, context) {
-        const add_user = require('../np-includes/add_user');
-        const hashedPassword = crypto.createHash('md5').update(request.password).digest("hex")
-
-        add_user({
-            username: request.username,
-            password: hashedPassword,
-            role: 'admin'
-        })
-
-        context.res.send('{"success" : true}');
-
-    }
 
     static startWithIgnition(request, context) {
-        const { update_option } = require('../np-includes/options')
-        update_option('active_theme', 'igition');
+       update_option('active_theme', 'igition');
         update_option('has_theme_activated', false);
 
         updateEnvVariable('INSTALL_COMPLETE', 'true');
@@ -246,7 +252,6 @@ class NPAdmin {
 
 
     static startWithPageBuilder(request, context) {
-        const { update_option } = require('../np-includes/options')
         update_option('active_theme', 'pagebuilder');
         update_option('has_theme_activated', false);
         updateEnvVariable('INSTALL_COMPLETE', 'true');

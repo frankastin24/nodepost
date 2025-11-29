@@ -1,4 +1,27 @@
 {
     "Thanks for choosing NodePost!" : "Merci d'avoir choisi NodePost !",
-    "Let's get started." : "Commençons."
+    "Let's get started." : "Commençons.",
+    "Language not listed?" : "La langue n'est pas listée ? Cliquez ici pour la demander.",
+    "Please Select Your Database" : "Veuillez sélectionner votre base de données",
+    "If you have a smaller low traffic website use SQLite" : "Si vous avez un petit site web à faible trafic, utilisez SQLite. Si vous avez un grand site web ou un trafic important, utilisez MySQL.",
+    "Next" : "Suivant",
+    "Previous" : "Précédent",
+    "MySQL Credentials" : "Identifiants MySQL",
+    "Ensure you have mysql installed on your system.": "Assurez-vous que MySQL est installé sur votre système",
+    "If you don't know how to install it click here!" :"Si vous ne savez pas comment l'installer, cliquez ici !",
+    "Database Host" : "Hôte de la base de données",
+    "Database Name" : "Nom de la base de données",
+    "Database Username" : "Nom d'utilisateur de la base de données",
+    "Database Password" :  "Mot de passe de la base de données",
+    "Site Name" : "Nom du site",
+    "Site Tag Line" : "Site Tag Line",
+    "Site Credentials" : "Site Credentials",
+    "Username" : "Username",
+    "Password" : "Password",
+    "How would you like to start?" : "How would you like to start?",
+    "Start With The Ignition Theme" : "Start With The Ignition Theme",
+    "Start With The Blank Theme" : "Start With The Blank Theme",
+    "Build The Site With AI" : "Build The Site With AI",
+    "Clone an existing site" : "Clone an existing site",
+    "Finish" : "Finish"
 }

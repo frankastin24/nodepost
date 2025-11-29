@@ -26,7 +26,7 @@
 
            
             <div class="flex nav">
-            <button class='btn btn-primary next' @click="changeStep(2)">{{langObj['Next']}}</button>
+            <button class='btn btn-primary next' @click="next()">{{langObj['Next']}}</button>
             </div>
 
         </section>
@@ -46,24 +46,25 @@
             </div>
 
             <div class="flex nav">
-               <button class='btn btn-primary' @click="prevStep(1)">{{langObj['Next']}}</button>
-               <button class='btn btn-primary next' @click="changeStep(3)">{{langObj['Next']}}</button>
+               <button class='btn btn-primary' @click="previous">{{langObj['Previous']}}</button>
+               <button class='btn btn-primary next' @click="next">{{langObj['Next']}}</button>
             </div>
          </section>
         <section v-if="step == 3" class="np-install-section" id="np-mysql-details">
             
-            <h1>MySQL Credentials</h1>
-            <p>Ensure you have mysql installed on your system. <a href="https://nodepost.org/install_mysql">Click here if you don't know how to install it.</a></p>
+            <h1>{{langObj['MySQL Credentials']}}</h1>
+            <p>{{langObj['Ensure you have mysql installed on your system.']}} <a href="https://nodepost.org/install-mysql">{{langObj["If you don't know how to install it click here!"]}}</a></p>
             
-            <input v-model="databaseCreds.host" placeholder="Database Host" value="localhost" type="text"></input>
-            <input v-model="databaseCreds.name" placeholder="Database Name" value="localhost" type="text"></input>
-            <input v-model="databaseCreds.username" placeholder="Database Username" value="localhost" type="text"></input>
-            <input v-model="databaseCreds.password" placeholder="Database Password" value="localhost" type="text"></input>
+            <input v-model="databaseCreds.host" :placeholder="langObj['Database Host']" value="localhost" type="text"></input>
+            <input v-model="databaseCreds.name" :placeholder="langObj['Database Name']" value="localhost" type="text"></input>
+            <input v-model="databaseCreds.username" :placeholder="langObj['Database Username']" value="localhost" type="text"></input>
+            <input v-model="databaseCreds.password" :placeholder="langObj['Database Password']" value="localhost" type="text"></input>
             
             <p class="error">{{databaseError}}</p>
             
             <div class="flex nav">
-                <button class="btn btn-primary" @click="prevStep(2)">Previous</button>
+               <button class='btn btn-primary' @click="previous">{{langObj['Previous']}}</button>
+              
                 <button class="btn btn-primary next" @click="testConnection">Test Connection</button>
             </div>
 
@@ -73,26 +74,45 @@
             
             <h1>Site Details</h1>
             
-            <input v-model="siteName" placeholder="Site Name" type="text"/>
-            <input v-model="siteTagline" placeholder="Site Tag Line" type="text"/>
+            <input v-model="siteName" :placeholder="langObj['Site Name']" type="text"/>
+            <input v-model="siteTagline" :placeholder="langObj['Site Tag Line']" type="text"/>
 
             <div class="flex nav">
-              <button class="btn btn-primary" @click="prevStep(3)">Previous</button>
-             <button class="btn btn-primary next" @click="changeStep(5)">Next</button>
+               <button class='btn btn-primary' @click="previous">{{langObj['Previous']}}</button>
+               <button class='btn btn-primary next' @click="next">{{langObj['Next']}}</button>
             </div>
             
 
         </section>
         <section v-if="step == 5" class="np-install-section" id="np-mysql-details">
             
-            <h1>Site Details</h1>
+            <h1>{{langObj["Site Credentials"]}}</h1>
             
-            <input v-model="siteName" placeholder="Site Name" type="text"/>
-            <input v-model="siteTagline" placeholder="Site Tag Line" type="text"/>
+            <input v-model="username" :placeholder="langObj['Username']" type="text"/>
+            <input v-model="password" :placeholder="langObj['Password']" type="password"/>
 
-            <div class="flex nav">
-              <button class="btn btn-primary" @click="changeStep(3)">Previous</button>
-             <button class="btn btn-primary" @click="changeStep(3)">Previous</button>
+             <div class="flex nav">
+               <button class='btn btn-primary' @click="previous">{{langObj['Previous']}}</button>
+               <button class='btn btn-primary next' @click="next">{{langObj['Next']}}</button>
+            </div>
+            
+
+        </section>
+
+        <section v-if="step == 6" class="np-install-section" id="np-mysql-details">
+            
+            <h1>{{langObj['How would you like to start?']}}</h1>
+            
+            <div class="flex space-between">
+                <button class="btn btn-primary" @click="startWithIgnition">{{langObj['Start With The Ignition Theme']}}</button>
+                <button class="btn btn-primary" @click="startWithBlank">{{langObj['Start With The Blank Theme']}}</button>
+                <button class="btn btn-primary" @click="buildWithAI">{{langObj['Build The Site With AI']}}</button>
+                <button class="btn btn-primary" @click="startWithIgnition">{{langObj['Clone an existing site']}}</button>
+            </div>
+
+             <div class="flex nav">
+               <button class='btn btn-primary' @click="previous">{{langObj['Previous']}}</button>
+               <button class='btn btn-primary next' @click="finish">{{langObj['Finish']}}</button>
             </div>
             
 
@@ -110,6 +130,13 @@ let lang = 'en';
 const langObj = ref({})
 const database = ref('sqlite');
 
+const siteTitle = ref('');
+const siteTagLine = ref('');
+
+const username = ref('');
+const password = ref('');
+const userMessage = ref('');
+
 const databaseCreds = ref({
     host: 'localhost',
     name : '',
@@ -117,7 +144,10 @@ const databaseCreds = ref({
     password : '',
 })
 
-const changeStep = (newStep) => {
+const next = () => {
+    
+    let newStep = step.value + 1;
+
     if(newStep == 3) {
         if(database.value == 'sqlite') {
            newStep = 4;
@@ -125,6 +155,34 @@ const changeStep = (newStep) => {
     }
     
     step.value = newStep;
+    setCurrentStep(newStep);
+}
+
+const checkUserCreds = () => {
+    if(username.value == '') {
+       userMessage.value = 'Please enter a Username';
+       return false;
+    }
+    if(password.value == '') {
+        userMessage.value = 'Please enter a Password';
+       return false;
+    }
+
+    return true;
+}
+
+const previous = () => {
+    
+    let newStep = step.value - 1;
+
+    if(newStep == 3) {
+        if(database.value == 'sqlite') {
+           newStep = 2;
+        }
+    }
+    
+    step.value = newStep;
+    setCurrentStep(newStep);
 }
 
 const getLangObj = async (lang) => {
@@ -146,6 +204,11 @@ const setCurrentLang = async (newLang) => {
     getLangObj(newLang);
 }
 
+const setCurrentStep = async (step) => {
+    await fetch('/np-ajax/?action=set_current_step&step='+step);
+    
+}
+
 const changeLang = async (e) => {
     
     setCurrentLang(e.target.value);
@@ -155,13 +218,10 @@ const changeLang = async (e) => {
 
 const getInstallStep = async () => {
     const response = await fetch('/np-ajax/?action=get_install_step');
-    const step = (await response).text();
-    step.value = parseInt(step);
+    const currentStep = await response.text();
+    step.value = parseInt(currentStep);
 }
 
-const setStep = async (step) => {
-    fetch('/np-ajax/?action=set_install_step&step='+step.value);
-}
 
 const languagesForTicker = [
     "Please select your language",
