@@ -24,6 +24,7 @@
   "dependencies": {
     "@babel/parser": "^7.28.0",
     "@babel/traverse": "^7.28.0",
+    "argon2": "^0.44.0",
     "babel": "^5.8.38",
     "busboy": "^1.6.0",
     "cheerio": "^1.1.2",

@@ -8,13 +8,9 @@ const { addAjax } = require('../np-includes/addAjax');
 const adminMenu = require('../np-includes/adminMenu');
 const loginUser = require('../np-includes/loginUser');
 const addNoPrivAjax = require('../np-includes/addNoPrivAjax');
-const updateEnviromental = require('../fuse/enviromentals');
 const fs = require('fs')
 class NPAdmin {
 
-    static install(request, context) {
-        view(admin_views_path + 'install', {}, context);
-    }
 
     static noPrivAjax(request,context) {
       
@@ -25,79 +21,7 @@ class NPAdmin {
         }
     } 
 
-    static registerInstallAJAX() {
-
-        const { update_option } = require('../np-includes/options')
-        
-        addNoPrivAjax('get_current_lang', (context) => {
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-            context.res.send(global.__env.LANGUAGE);
-        })
-        
-        addNoPrivAjax('get_install_step', (context) => {
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-            context.res.send(global.__env.INSTALL_STEP);
-        })
-        
-        addNoPrivAjax('set_current_lang', (context,request) => {
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-            updateEnviromental('LANGUAGE', request.lang);
-            context.res.send('true');
-        })
-
-         addNoPrivAjax('set_current_step', (context,request) => {
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-            updateEnviromental('INSTALL_STEP', request.step);
-            context.res.send('true');
-        })
-
-        addNoPrivAjax('set_current_lang', (context,request) => {
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-            updateEnviromental('LANGUAGE', request.lang);
-            context.res.send('true');
-        })
-
-        addNoPrivAjax('set_database_creds', (context,request) => {
-        
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-        
-            updateEnviromental('DB_HOST', request.db_host);
-            updateEnviromental('DB_USER', request.db_user);
-            updateEnviromental('DB_NAME', request.db_name);
-            updateEnviromental('DB_PASSWORD', request.db_password);
-        
-            context.res.send('true');
-        
-        })
-
-        addNoPrivAjax('set_site_details', (context,request) => {
-        
-            if(global.__env.INSTALL_COMPLETE == 'true') {
-                return context.send('Install Complete');
-            }
-        
-            update_option('site_title', request.site_title);
-            update_option('site_tag_line', request.site_tag_line);
-        
-            context.res.send('true');
-        
-        })
-
-       
-
-    }
+    
 
 
     static login(request,context) {

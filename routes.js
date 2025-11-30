@@ -1,6 +1,7 @@
 const router = require('./fuse/routing');
 const NPLoad = require('./controllers/NPLoad')
-const NPAdmin = require('./controllers/NPAdmin')
+const NPAdmin = require('./controllers/NPAdmin');
+const NPInstall = require('./controllers/NPInstall');
 
 /* 
 
@@ -10,7 +11,7 @@ Admin Routes
 
 const adminURL = global.__env.ADMIN_URL;
 
-router.get(`/${adminURL}/install`, NPAdmin.install)
+router.get(`/${adminURL}/install`, NPInstall.index)
 
 router.post(`/${adminURL}/np-ajax`, NPAdmin.index );
 

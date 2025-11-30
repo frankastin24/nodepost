@@ -4,6 +4,7 @@ const do_action = require('./np-includes/doAction');
 const enqueue_admin_stylesheet = require('./np-includes/enqueue_admin_stylesheet');
 const enqueue_admin_script = require('./np-includes/enqueue_admin_script');
 
+
 //Load environmentals
 
 global.__app_path = __dirname;
@@ -14,13 +15,13 @@ require('./fuse/db')
 //Load models
 
 add_action('db_initalized', () => {
-
+ 
    scanAndRequire(global.__app_path+'/models');
+   
    do_action('enqueue_scripts');
+   
    require('./routes')
-   const NPAdmin = require('./controllers/NPAdmin');
-   NPAdmin.registerInstallAJAX();
-   NPAdmin.ajax();
+   
    require('./fuse/server');
 
 })

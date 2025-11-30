@@ -22,6 +22,17 @@ app.use(session({
 app.use(serveStaticIfExists(global.__app_path));
 
 app.all('/{*any}', (req, res) => {
+  const NPAdmin = require('../controllers/NPAdmin');
+  const NPInstall = require('../controllers/NPInstall');
+  
+  if(global.__env.INSTALL_COMPLETE == 'false') {
+
+    NPInstall.registerAJAX();
+
+  } else {
+      NPAdmin.ajax();
+  }
+
   const context = {
     req,
     res,

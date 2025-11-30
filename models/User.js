@@ -10,13 +10,6 @@ const User = global.npdb.define('np_users', {
   password: DataTypes.STRING,
   firstName: DataTypes.STRING,
   lastName: DataTypes.STRING,
-  addressLine1: DataTypes.STRING,
-  addressLine2: DataTypes.STRING,
-  city: DataTypes.STRING,
-  county: DataTypes.STRING,
-  country: DataTypes.STRING,
-  postcode: DataTypes.STRING,
-  phone: DataTypes.STRING,
   role: DataTypes.STRING,
 
 });
@@ -24,6 +17,6 @@ const User = global.npdb.define('np_users', {
 module.exports = User;
 
 (async ()=> {
-    await global.npdb.sync();
+    await global.npdb.sync({force:true});
 })()
     
